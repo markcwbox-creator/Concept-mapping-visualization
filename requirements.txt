@@ -1,4 +1,8 @@
-# Core — required for every stage.
+# Viewing the committed build in the browser needs NOTHING from this file —
+# `python3 -m http.server --directory web` uses only the standard library.
+# Install the rest when you want to build a map of your own.
+
+# Core — every stage except viewing.
 numpy>=1.24
 PyYAML>=6.0
 

@@ -18,13 +18,33 @@ The build shown is real: Qwen3-1.7B, layer 18 of 28, 153 concepts. See
 
 ## Quick start
 
+### Just open the GUI
+
+A real build is committed under `web/data`, so the interface works straight
+after a clone — **no GPU, no model download, and no dependencies at all**:
+
+```bash
+git clone https://github.com/markcwbox-creator/Concept-mapping-visualization.git
+cd Concept-mapping-visualization
+python3 -m http.server 8000 --directory web
+```
+
+Then open <http://127.0.0.1:8000> in any browser.
+
+`python -m collider serve` does the same thing with nicer defaults once you have
+the package on your path (`PYTHONPATH=src`), and needs only numpy.
+
+> **It must be served over HTTP.** Double-clicking `web/index.html` will show a
+> blank page: the app uses ES modules and `fetch`, and browsers block both on
+> `file://` URLs. Any static server will do — `python3 -m http.server`,
+> `npx serve web`, VS Code's Live Server, or a real web host.
+
+### Build your own
+
 ```bash
 pip install -r requirements.txt
 
-# A real build is committed under web/data, so the UI works immediately:
-python -m collider serve          # -> http://127.0.0.1:8000
-
-# Build your own. Measure the layer first rather than guessing:
+# Measure the layer first rather than guessing:
 python -m collider sweep --config configs/qwen3-1.7b-4bit.yaml --limit 300
 python -m collider all   --config configs/qwen3-1.7b-4bit.yaml
 
