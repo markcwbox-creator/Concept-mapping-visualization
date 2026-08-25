@@ -103,7 +103,90 @@ skip the projection path entirely. They only appeared once a real 2048-dimension
 build existed. That is an argument for keeping at least one real build in the
 loop rather than trusting a fast synthetic fixture alone.
 
-## 5. What is still unvalidated
+---
+
+## 5. Structural signatures: a hypothesis, tested and mostly refuted
+
+**The hypothesis.** The pipeline measures similarity between *definitions*,
+which is a **topical** measure. Cross-domain analogy needs a **structural** one.
+`immune memory` and `caching` are the same structure — pay once, store the
+result, answer the repeat instantly, fail when the key goes stale — but their
+definitions share almost no vocabulary. So (the argument went) write a
+domain-neutral *structural signature* for each concept, embed that instead, and
+analogies become neighbours instead of distant pairs.
+
+**The test.** Signatures written for all 153 concepts against a fixed template,
+with one hard rule: no word naming the field. Scored against the 21 labelled
+cross-domain analogies in `data/probes/example_probes.jsonl` — written earlier,
+to test layer choice, not this. Rank the target among the other 152; chance
+median is ~76. Reproduce with `scripts/structure_experiment.py`.
+
+| regime | median rank | mean | r@1 | r@5 | r@10 |
+|---|---|---|---|---|---|
+| topical (definitions) | **8** | 20.9 | 0.24 | 0.48 | **0.52** |
+| structural (signatures) | 36 | 39.3 | 0.14 | 0.33 | 0.33 |
+| dual, structural − 0.5·topical | 73 | 68.0 | 0.00 | 0.10 | 0.24 |
+| dual, structural − 1.0·topical | 88 | 95.0 | 0.00 | 0.00 | 0.05 |
+| fused (reciprocal rank fusion) | 8 | 21.1 | 0.24 | 0.38 | 0.52 |
+| union ceiling (oracle) | **2** | 13.7 | 0.33 | 0.62 | 0.62 |
+
+**Three results, in descending order of how much they cost to learn the hard way.**
+
+**(a) The intuitive score is the worst thing you can build.** "Structurally near
+*and* topically far" — subtract one similarity from the other — is the obvious
+formalisation of "same structure, unrelated fields", and it performs at chance.
+It is worse than either input alone. The reason is that real analogies are
+often *somewhat* topically related, so the subtraction actively punishes correct
+answers, and subtracting a noisy quantity adds its noise. Anyone building this
+from intuition writes this scorer first. It does not work.
+
+**(b) Replacing definitions with signatures makes things worse on average, but
+that average hides the real finding.** The two spaces succeed on disjoint sets
+of pairs:
+
+```
+structure rescues what topic cannot reach     topic holds what structure loses
+  placebo-effect  x priming       81 ->   2     moral-hazard x principal-agent   1 ->  37
+  hysteresis x learned-helpless   38 ->   4     improvisation x flow-state       1 ->  39
+  chronic-inflammation x feedback 59 ->  44     caching x immune-memory          1 ->  14
+  compression x abstraction-layer 47 ->  36     network-effect x cultural-trans 11 -> 139
+```
+
+The pattern is consistent: signatures win when the pair is topically remote, and
+lose when it is topically close. That is exactly the complementarity you would
+want — and the oracle union confirms real headroom (median 8 → **2**, r@5
+0.48 → 0.62).
+
+This is not an artefact of the signature space being mushier. Both spaces have
+identical spread after correction (mean cosine −0.006, std 0.070 vs 0.071). The
+signature space is just as discriminative; it discriminates on something else.
+
+**(c) Naive fusion cannot capture the headroom.** Reciprocal rank fusion — the
+standard untuned combiner — lands exactly on topical's numbers (median 8, r@10
+0.52) and buys nothing, because when one channel is badly wrong it drags the
+merged score down. The gap between RRF (8) and the oracle (2) is the size of the
+prize available to a *learned* combiner, and it is large.
+
+**What this means for training.** It locates precisely where fitting parameters
+earns its cost. Not the language model — that stays frozen and pre-trained, and
+nothing else is affordable or desirable. But a small combiner over the two
+spaces, fitted on labelled analogy pairs, is seconds of CPU and has a measured
+median-rank-8-to-2 ceiling. That is the highest-return training in the project,
+and it converts the bottleneck into a labelling problem: 21 labelled pairs is
+enough to measure with, nowhere near enough to fit with.
+
+**Caveats.** 21 probes is a small sample and rank differences of a few places
+are noise (81 → 2 and 1 → 139 are not). The signatures were written by a large
+model that had seen the project's aims and the probe file, so the structural
+space may partly encode its own analogy judgements — though note this
+contamination would inflate the structural result, and the structural result
+*lost*. The unprompted pairs the dual score surfaces (`diffusion` ×
+`affordance`, `resonance` × `planned-obsolescence`) read as noise, which is
+consistent with (a) rather than a separate failure.
+
+---
+
+## 6. What is still unvalidated
 
 Whether any of this is *generative for a human*. The map surfaces pairs; nothing
 here shows that exploring them produces thoughts a person would not otherwise

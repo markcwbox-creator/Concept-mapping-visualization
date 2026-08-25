@@ -1,0 +1,65 @@
+// Structural predicates: the axes of the "shape" space.
+//
+// Each is a yes/no question about a concept's underlying FORM, deliberately
+// written to be answerable without knowing the concept's subject matter. A
+// concept's structure vector is its calibrated P(yes) across all of these.
+//
+// The inventory is the load-bearing design choice in this whole approach: two
+// concepts can only be found isomorphic along an axis that exists here. Missing
+// predicates are invisible failures, not errors. Add your own — the encoder
+// reads this file, nothing is hard-coded.
+//
+// `family` is for grouping in the UI and for the per-family similarity
+// breakdown; it has no effect on the maths.
+{"id": "pos-feedback", "family": "dynamics", "probe": "a self-reinforcing loop, where more of something causes even more of it"}
+{"id": "neg-feedback", "family": "dynamics", "probe": "a self-correcting loop that pushes a quantity back toward a set point"}
+{"id": "threshold", "family": "dynamics", "probe": "a critical threshold, below which little happens and above which behaviour changes abruptly"}
+{"id": "equilibrium", "family": "dynamics", "probe": "a balance point that the system settles into and returns to after disturbance"}
+{"id": "oscillation", "family": "dynamics", "probe": "a cycle or oscillation that repeats over time"}
+{"id": "hysteresis", "family": "dynamics", "probe": "path dependence, where the current state depends on the history of what happened before"}
+{"id": "delay", "family": "dynamics", "probe": "a lag between a cause and the effect it eventually produces"}
+{"id": "cascade", "family": "dynamics", "probe": "a cascade, where one change triggers a chain of further changes"}
+{"id": "saturation", "family": "dynamics", "probe": "diminishing returns or saturation as some input keeps increasing"}
+{"id": "amplification", "family": "dynamics", "probe": "amplification, where a small input produces a disproportionately large output"}
+{"id": "variation", "family": "selection", "probe": "a population of variants that differ from one another"}
+{"id": "differential-retention", "family": "selection", "probe": "some variants persisting or spreading while others are eliminated"}
+{"id": "competition", "family": "selection", "probe": "competition between rivals for a limited resource"}
+{"id": "fitness-landscape", "family": "selection", "probe": "gradual improvement by hill-climbing toward some measure of success"}
+{"id": "arms-race", "family": "selection", "probe": "an escalating arms race, where each side's improvement forces the other to improve"}
+{"id": "drift", "family": "selection", "probe": "gradual undirected change accumulating by chance rather than by pressure"}
+{"id": "stock-flow", "family": "flow", "probe": "a reservoir that fills and drains, with distinct inflows and outflows"}
+{"id": "conservation", "family": "flow", "probe": "a conserved quantity that is redistributed rather than created or destroyed"}
+{"id": "bottleneck", "family": "flow", "probe": "a bottleneck stage whose limited capacity constrains the whole process"}
+{"id": "gradient-transport", "family": "flow", "probe": "movement driven by a difference or gradient between two regions"}
+{"id": "accumulation", "family": "flow", "probe": "something building up gradually over time until it matters"}
+{"id": "dissipation", "family": "flow", "probe": "loss, decay or leakage of something as it moves through the system"}
+{"id": "modularity", "family": "composition", "probe": "interchangeable parts that connect through standard interfaces"}
+{"id": "hierarchy", "family": "composition", "probe": "nesting, where the same kind of structure appears at multiple scales"}
+{"id": "recursion", "family": "composition", "probe": "self-reference, where something is defined or explained in terms of itself"}
+{"id": "boundary", "family": "composition", "probe": "a boundary separating inside from outside, with selective exchange across it"}
+{"id": "hub", "family": "composition", "probe": "a network in which a few highly connected nodes matter far more than the rest"}
+{"id": "redundancy", "family": "composition", "probe": "duplicate or backup components that let it survive a single failure"}
+{"id": "coupling", "family": "composition", "probe": "tight coupling, where a change in one part forces changes in others"}
+{"id": "emergence", "family": "composition", "probe": "properties of the whole that none of the individual parts possess"}
+{"id": "signal-noise", "family": "information", "probe": "the problem of separating a meaningful signal from background noise"}
+{"id": "info-asymmetry", "family": "information", "probe": "one party knowing materially more than another"}
+{"id": "compression", "family": "information", "probe": "discarding detail in order to expose or transmit the essential structure"}
+{"id": "encoding", "family": "information", "probe": "encoding something into a different form and later decoding it back"}
+{"id": "memory", "family": "information", "probe": "a stored record of the past that changes how the present is handled"}
+{"id": "error-correction", "family": "information", "probe": "detecting and repairing errors to keep the system accurate"}
+{"id": "prediction", "family": "information", "probe": "anticipating a future state and acting on that anticipation"}
+{"id": "tradeoff", "family": "constraint", "probe": "a genuine trade-off, where gaining on one dimension costs you on another"}
+{"id": "local-optimum", "family": "constraint", "probe": "getting stuck in a good-enough state that blocks reaching a better one"}
+{"id": "constraint-satisfaction", "family": "constraint", "probe": "finding an arrangement that satisfies many competing requirements at once"}
+{"id": "irreversibility", "family": "constraint", "probe": "a change that cannot practically be undone once it has happened"}
+{"id": "scarcity", "family": "constraint", "probe": "allocating something scarce among more claims than it can satisfy"}
+{"id": "misaligned-incentives", "family": "agency", "probe": "actors whose individual interests conflict with the good of the whole"}
+{"id": "delegation", "family": "agency", "probe": "one party acting on behalf of another whose interests may differ"}
+{"id": "collective-action", "family": "agency", "probe": "an outcome that requires many independent actors to coordinate"}
+{"id": "commitment", "family": "agency", "probe": "deliberately restricting your own future options in order to be credible"}
+{"id": "deferred-cost", "family": "failure", "probe": "a benefit taken now whose cost is paid later"}
+{"id": "single-point-failure", "family": "failure", "probe": "a single element whose failure brings down everything depending on it"}
+{"id": "tail-risk", "family": "failure", "probe": "rare events that dominate the outcome despite being unlikely"}
+{"id": "goal-drift", "family": "failure", "probe": "a mechanism that gradually stops serving the purpose it was created for"}
+{"id": "unintended-consequence", "family": "failure", "probe": "side effects that work against the intended aim"}
+{"id": "defence-turned-harm", "family": "failure", "probe": "a protective response that becomes damaging when it persists too long"}

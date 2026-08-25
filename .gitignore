@@ -21,3 +21,5 @@ data/build/layer_sweep.json
 # genuine Qwen3-1.7B build (see docs/FINDINGS.md), not a fixture. Your own
 # `collider build` overwrites it locally; commit it only if you mean to.
 data/build/space.json
+data/build/structure_vectors/
+data/build/structure_experiment.json
