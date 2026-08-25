@@ -1,0 +1,153 @@
+{"label": "photosynthesis", "definition": "The process by which plants convert light energy into chemical energy stored in sugars.", "domain": "biology"}
+{"label": "natural selection", "definition": "Differential survival and reproduction of individuals due to heritable variation in traits.", "domain": "biology"}
+{"label": "homeostasis", "definition": "The maintenance of a stable internal state despite changes in the external environment.", "domain": "biology"}
+{"label": "apoptosis", "definition": "Programmed cell death that removes damaged or unneeded cells in an orderly way.", "domain": "biology"}
+{"label": "symbiosis", "definition": "A persistent close association between two different organisms, often to mutual benefit.", "domain": "biology"}
+{"label": "gene expression", "definition": "The process by which information in a gene is used to build a functional product such as a protein.", "domain": "biology"}
+{"label": "immune memory", "definition": "The capacity of an immune system to respond faster to a pathogen it has encountered before.", "domain": "biology"}
+{"label": "metamorphosis", "definition": "An abrupt reorganisation of an organism's body plan between life stages.", "domain": "biology"}
+{"label": "circadian rhythm", "definition": "An internal roughly twenty-four hour cycle that regulates an organism's physiology and behaviour.", "domain": "biology"}
+{"label": "horizontal gene transfer", "definition": "The movement of genetic material between organisms other than by descent from a parent.", "domain": "biology"}
+{"label": "entropy", "definition": "A measure of the number of microscopic arrangements consistent with a system's macroscopic state.", "domain": "physics"}
+{"label": "phase transition", "definition": "An abrupt change in the bulk properties of a substance as a control parameter crosses a critical value.", "domain": "physics"}
+{"label": "resonance", "definition": "The large response of a system driven at a frequency matching its natural oscillation.", "domain": "physics"}
+{"label": "conservation of energy", "definition": "The principle that the total energy of an isolated system does not change over time.", "domain": "physics"}
+{"label": "quantum entanglement", "definition": "A correlation between particles such that the state of one cannot be described independently of the other.", "domain": "physics"}
+{"label": "symmetry breaking", "definition": "When a system's stable state has less symmetry than the laws that govern it.", "domain": "physics"}
+{"label": "critical mass", "definition": "The minimum amount of material needed for a self-sustaining chain reaction.", "domain": "physics"}
+{"label": "diffusion", "definition": "The net movement of particles from regions of high concentration to low concentration.", "domain": "physics"}
+{"label": "hysteresis", "definition": "When a system's current state depends on the history of inputs, not only their present value.", "domain": "physics"}
+{"label": "event horizon", "definition": "The boundary beyond which no information can escape to an outside observer.", "domain": "physics"}
+{"label": "catalysis", "definition": "The acceleration of a chemical reaction by a substance that is not consumed by it.", "domain": "chemistry"}
+{"label": "chemical equilibrium", "definition": "A state in which forward and reverse reactions proceed at equal rates so concentrations stop changing.", "domain": "chemistry"}
+{"label": "polymerisation", "definition": "The joining of small repeating units into long chain molecules with new bulk properties.", "domain": "chemistry"}
+{"label": "solubility", "definition": "The extent to which one substance can dissolve into another to form a uniform mixture.", "domain": "chemistry"}
+{"label": "chirality", "definition": "The property of a structure that is not superimposable on its mirror image.", "domain": "chemistry"}
+{"label": "activation energy", "definition": "The minimum energy barrier that must be overcome for a reaction to proceed.", "domain": "chemistry"}
+{"label": "recursion", "definition": "Defining something in terms of smaller instances of itself.", "domain": "mathematics"}
+{"label": "isomorphism", "definition": "A structure-preserving correspondence showing two systems are the same in every relevant respect.", "domain": "mathematics"}
+{"label": "fixed point", "definition": "A value left unchanged by a transformation applied to it.", "domain": "mathematics"}
+{"label": "topology", "definition": "The study of properties preserved under continuous deformation such as stretching but not tearing.", "domain": "mathematics"}
+{"label": "combinatorial explosion", "definition": "The rapid growth in the number of possibilities as the size of a problem increases.", "domain": "mathematics"}
+{"label": "duality", "definition": "A correspondence in which every statement in one system has a mirror statement in another.", "domain": "mathematics"}
+{"label": "invariant", "definition": "A quantity that stays the same while a system undergoes change.", "domain": "mathematics"}
+{"label": "gradient descent", "definition": "Iteratively moving in the direction that most steeply reduces an objective function.", "domain": "mathematics"}
+{"label": "phase space", "definition": "An abstract space in which every possible state of a system is a single point.", "domain": "mathematics"}
+{"label": "incompleteness", "definition": "The result that any sufficiently powerful formal system contains true statements it cannot prove.", "domain": "mathematics"}
+{"label": "regression to the mean", "definition": "The tendency of extreme measurements to be followed by ones closer to the average.", "domain": "statistics"}
+{"label": "overfitting", "definition": "Modelling noise in the training data so closely that performance on new data degrades.", "domain": "statistics"}
+{"label": "base rate neglect", "definition": "Judging a probability from specific evidence while ignoring how common the outcome is overall.", "domain": "statistics"}
+{"label": "confounding variable", "definition": "An unmeasured factor that influences both the supposed cause and the supposed effect.", "domain": "statistics"}
+{"label": "bayesian inference", "definition": "Updating the probability of a hypothesis as new evidence arrives.", "domain": "statistics"}
+{"label": "sampling bias", "definition": "Systematic error introduced when the sample does not represent the population it is drawn from.", "domain": "statistics"}
+{"label": "signal to noise ratio", "definition": "The strength of a meaningful signal relative to the background variation obscuring it.", "domain": "statistics"}
+{"label": "caching", "definition": "Storing the result of an expensive operation so later requests can reuse it.", "domain": "computing"}
+{"label": "garbage collection", "definition": "Automatic reclamation of memory that a program can no longer reach.", "domain": "computing"}
+{"label": "abstraction layer", "definition": "An interface that hides underlying complexity behind a simpler set of operations.", "domain": "computing"}
+{"label": "race condition", "definition": "A defect where the outcome depends on the unpredictable relative timing of concurrent operations.", "domain": "computing"}
+{"label": "technical debt", "definition": "The accumulated future cost of choosing an expedient implementation over a sound one.", "domain": "computing"}
+{"label": "load balancing", "definition": "Distributing work across multiple resources so that none becomes a bottleneck.", "domain": "computing"}
+{"label": "backpropagation", "definition": "Computing how each parameter in a network contributed to an error by propagating gradients backwards.", "domain": "computing"}
+{"label": "consensus protocol", "definition": "A procedure by which distributed participants agree on a single value despite failures.", "domain": "computing"}
+{"label": "idempotence", "definition": "The property that performing an operation repeatedly has the same effect as performing it once.", "domain": "computing"}
+{"label": "combinatorial search", "definition": "Exploring a large discrete space of candidate solutions to find one that satisfies constraints.", "domain": "computing"}
+{"label": "compression", "definition": "Representing information in fewer bits by exploiting its redundancy and structure.", "domain": "computing"}
+{"label": "version control", "definition": "Recording changes to a body of work so any earlier state can be recovered and compared.", "domain": "computing"}
+{"label": "opportunity cost", "definition": "The value of the best alternative given up when a choice is made.", "domain": "economics"}
+{"label": "moral hazard", "definition": "The tendency to take more risk when someone else bears the consequences.", "domain": "economics"}
+{"label": "tragedy of the commons", "definition": "The depletion of a shared resource by individuals acting in their own rational interest.", "domain": "economics"}
+{"label": "monetary policy", "definition": "A central authority's management of money supply and interest rates to influence an economy.", "domain": "economics"}
+{"label": "comparative advantage", "definition": "The benefit of specialising in what one gives up least to produce, then trading.", "domain": "economics"}
+{"label": "network effect", "definition": "When a product becomes more valuable to each user as more people use it.", "domain": "economics"}
+{"label": "creative destruction", "definition": "The process by which new methods dismantle the industries built on old ones.", "domain": "economics"}
+{"label": "information asymmetry", "definition": "A transaction in which one party knows materially more than the other.", "domain": "economics"}
+{"label": "liquidity", "definition": "The ease with which an asset can be converted to cash without moving its price.", "domain": "economics"}
+{"label": "principal agent problem", "definition": "The conflict that arises when someone acts on another's behalf but has different incentives.", "domain": "economics"}
+{"label": "inflation", "definition": "A sustained rise in the general price level, reducing what a unit of currency buys.", "domain": "economics"}
+{"label": "cognitive dissonance", "definition": "The discomfort of holding two conflicting beliefs, and the pressure to resolve it.", "domain": "psychology"}
+{"label": "working memory", "definition": "The limited store that holds and manipulates information during ongoing thought.", "domain": "psychology"}
+{"label": "operant conditioning", "definition": "Learning in which the consequences of a behaviour change how often it occurs.", "domain": "psychology"}
+{"label": "confirmation bias", "definition": "The tendency to seek and weight evidence that supports what one already believes.", "domain": "psychology"}
+{"label": "flow state", "definition": "Absorbed focus in an activity whose difficulty is matched to one's skill.", "domain": "psychology"}
+{"label": "learned helplessness", "definition": "Ceasing to attempt escape after repeated experience that one's actions have no effect.", "domain": "psychology"}
+{"label": "priming", "definition": "When exposure to one stimulus changes the response to a later one without conscious awareness.", "domain": "psychology"}
+{"label": "theory of mind", "definition": "The ability to attribute beliefs and intentions to others that differ from one's own.", "domain": "psychology"}
+{"label": "habituation", "definition": "The gradual decrease in response to a stimulus that repeats without consequence.", "domain": "psychology"}
+{"label": "attachment", "definition": "The enduring emotional bond formed with a caregiver that shapes later relationships.", "domain": "psychology"}
+{"label": "emergence", "definition": "When a system displays properties that none of its components possess alone.", "domain": "philosophy"}
+{"label": "the ship of theseus", "definition": "The puzzle of whether an object whose parts are all replaced remains the same object.", "domain": "philosophy"}
+{"label": "categorical imperative", "definition": "The rule that one should act only on principles one could will to be universal.", "domain": "philosophy"}
+{"label": "qualia", "definition": "The subjective felt character of an experience, such as what redness is like.", "domain": "philosophy"}
+{"label": "epistemic humility", "definition": "Holding beliefs in proportion to evidence and acknowledging the limits of one's knowledge.", "domain": "philosophy"}
+{"label": "reductionism", "definition": "The view that a system is best explained by the behaviour of its constituent parts.", "domain": "philosophy"}
+{"label": "teleology", "definition": "Explanation of a thing by reference to the purpose or end it serves.", "domain": "philosophy"}
+{"label": "social contract", "definition": "The idea that political authority rests on an implicit agreement among the governed.", "domain": "philosophy"}
+{"label": "sorites paradox", "definition": "The problem that vague predicates have no precise boundary, so small changes never seem decisive.", "domain": "philosophy"}
+{"label": "instrumental convergence", "definition": "The tendency of agents with different goals to pursue similar intermediate subgoals.", "domain": "philosophy"}
+{"label": "metaphor", "definition": "Understanding one domain of experience in terms of the structure of another.", "domain": "linguistics"}
+{"label": "code switching", "definition": "Alternating between languages or registers according to social context.", "domain": "linguistics"}
+{"label": "semantic drift", "definition": "The gradual change in a word's meaning across generations of speakers.", "domain": "linguistics"}
+{"label": "grammatical case", "definition": "Marking on a word that signals its syntactic role within a sentence.", "domain": "linguistics"}
+{"label": "pragmatics", "definition": "How context rather than literal wording determines what an utterance conveys.", "domain": "linguistics"}
+{"label": "creolisation", "definition": "The emergence of a full natural language from a simplified contact language.", "domain": "linguistics"}
+{"label": "phoneme", "definition": "The smallest unit of sound that distinguishes one word from another in a language.", "domain": "linguistics"}
+{"label": "untranslatability", "definition": "When a concept encoded in one language has no direct equivalent in another.", "domain": "linguistics"}
+{"label": "counterpoint", "definition": "The combination of independent melodic lines that remain coherent when heard together.", "domain": "music"}
+{"label": "syncopation", "definition": "Placing emphasis on beats where the listener does not expect it.", "domain": "music"}
+{"label": "timbre", "definition": "The quality of a sound that distinguishes instruments playing the same pitch.", "domain": "music"}
+{"label": "modulation", "definition": "Moving a piece of music from one key centre to another.", "domain": "music"}
+{"label": "improvisation", "definition": "Composing within constraints in real time while performing.", "domain": "music"}
+{"label": "leitmotif", "definition": "A recurring musical phrase associated with a particular character or idea.", "domain": "music"}
+{"label": "dissonance", "definition": "A combination of tones that creates tension seeking resolution.", "domain": "music"}
+{"label": "polyrhythm", "definition": "Two or more conflicting rhythms sounding at the same time.", "domain": "music"}
+{"label": "load bearing wall", "definition": "A wall that carries the weight of the structure above it down to the foundation.", "domain": "architecture"}
+{"label": "desire path", "definition": "An unplanned route worn into ground by people repeatedly choosing it over the designed one.", "domain": "architecture"}
+{"label": "modularity", "definition": "Composing a whole from interchangeable units with standard interfaces.", "domain": "architecture"}
+{"label": "negative space", "definition": "The empty area around and between forms, which shapes how the forms are read.", "domain": "architecture"}
+{"label": "vernacular architecture", "definition": "Building traditions that emerge from local materials, climate and custom rather than formal design.", "domain": "architecture"}
+{"label": "cantilever", "definition": "A structure anchored at one end that projects into space unsupported at the other.", "domain": "architecture"}
+{"label": "affordance", "definition": "A property of an object that signals to a user what can be done with it.", "domain": "architecture"}
+{"label": "precedent", "definition": "A prior decision that constrains how similar later cases must be decided.", "domain": "law"}
+{"label": "burden of proof", "definition": "The obligation to establish a claim rather than requiring others to disprove it.", "domain": "law"}
+{"label": "due process", "definition": "The requirement that established fair procedures be followed before rights are removed.", "domain": "law"}
+{"label": "jurisdiction", "definition": "The scope within which a particular authority's decisions have binding force.", "domain": "law"}
+{"label": "statute of limitations", "definition": "A deadline after which a claim can no longer be brought.", "domain": "law"}
+{"label": "fiduciary duty", "definition": "A legal obligation to act in another party's interest rather than one's own.", "domain": "law"}
+{"label": "strict liability", "definition": "Responsibility for harm regardless of intent or the care that was taken.", "domain": "law"}
+{"label": "triage", "definition": "Sorting patients by urgency so limited care reaches those it helps most.", "domain": "medicine"}
+{"label": "placebo effect", "definition": "Improvement produced by expectation of treatment rather than by the treatment itself.", "domain": "medicine"}
+{"label": "antibiotic resistance", "definition": "The evolution of microbes that survive drugs which previously killed them.", "domain": "medicine"}
+{"label": "differential diagnosis", "definition": "Systematically narrowing a set of candidate explanations for a patient's symptoms.", "domain": "medicine"}
+{"label": "chronic inflammation", "definition": "A prolonged defensive response that begins to damage the tissue it was protecting.", "domain": "medicine"}
+{"label": "herd immunity", "definition": "Protection of the unimmunised that arises once enough of a population is immune.", "domain": "medicine"}
+{"label": "iatrogenesis", "definition": "Harm caused by the process of medical treatment itself.", "domain": "medicine"}
+{"label": "keystone species", "definition": "A species whose removal disproportionately restructures its entire ecosystem.", "domain": "ecology"}
+{"label": "trophic cascade", "definition": "Effects that propagate down a food web when a top predator is added or removed.", "domain": "ecology"}
+{"label": "ecological succession", "definition": "The predictable sequence of communities that colonise a site after disturbance.", "domain": "ecology"}
+{"label": "carrying capacity", "definition": "The maximum population an environment can sustain indefinitely.", "domain": "ecology"}
+{"label": "niche partitioning", "definition": "The division of resources that lets similar species coexist without one excluding the other.", "domain": "ecology"}
+{"label": "resilience", "definition": "A system's capacity to absorb disturbance and still retain its essential function.", "domain": "ecology"}
+{"label": "invasive species", "definition": "An organism that spreads rapidly outside its native range and displaces residents.", "domain": "ecology"}
+{"label": "feedback loop", "definition": "A circuit in which a system's output is fed back as input, amplifying or damping change.", "domain": "engineering"}
+{"label": "fail safe", "definition": "A design that moves to a harmless state when it stops working correctly.", "domain": "engineering"}
+{"label": "tolerance stacking", "definition": "The accumulation of small permitted deviations into an unacceptable total error.", "domain": "engineering"}
+{"label": "redundancy", "definition": "Duplicating critical components so that a single failure does not stop the system.", "domain": "engineering"}
+{"label": "control system", "definition": "A mechanism that continuously adjusts inputs to keep an output near a target.", "domain": "engineering"}
+{"label": "planned obsolescence", "definition": "Designing a product with a deliberately limited useful life to drive replacement.", "domain": "engineering"}
+{"label": "bottleneck", "definition": "The single stage whose limited capacity sets the throughput of the whole process.", "domain": "engineering"}
+{"label": "reverse engineering", "definition": "Deducing the design and principles of a system by examining the finished artefact.", "domain": "engineering"}
+{"label": "chiaroscuro", "definition": "Strong contrast between light and dark used to model form and direct attention.", "domain": "art"}
+{"label": "pentimento", "definition": "An earlier version of a painting showing through the layers applied over it.", "domain": "art"}
+{"label": "wabi sabi", "definition": "An aesthetic that finds beauty in impermanence, incompleteness and wear.", "domain": "art"}
+{"label": "readymade", "definition": "An ordinary manufactured object presented as art through selection rather than making.", "domain": "art"}
+{"label": "perspective", "definition": "A system for representing three-dimensional depth on a flat surface.", "domain": "art"}
+{"label": "pastiche", "definition": "A work assembled from imitated styles of other works, without satirical intent.", "domain": "art"}
+{"label": "defamiliarisation", "definition": "Presenting the familiar in a strange way so it can be perceived afresh.", "domain": "art"}
+{"label": "ritual", "definition": "A prescribed sequence of actions whose meaning exceeds its practical effect.", "domain": "anthropology"}
+{"label": "gift economy", "definition": "Exchange organised around obligation and reciprocity rather than immediate payment.", "domain": "anthropology"}
+{"label": "liminality", "definition": "The ambiguous middle stage of a transition, after one status and before the next.", "domain": "anthropology"}
+{"label": "taboo", "definition": "A prohibition so strong that violating it threatens the social order itself.", "domain": "anthropology"}
+{"label": "kinship system", "definition": "The culturally specific rules that define who counts as a relative and what is owed.", "domain": "anthropology"}
+{"label": "cultural transmission", "definition": "The passing of learned behaviour between individuals and across generations.", "domain": "anthropology"}
+{"label": "oral tradition", "definition": "Knowledge preserved and transmitted by speech and performance rather than writing.", "domain": "anthropology"}
+{"label": "diaspora", "definition": "A dispersed population that maintains connection to a shared place of origin.", "domain": "anthropology"}

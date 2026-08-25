@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept Collider</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="banner" class="banner hidden"></div>
+
+<header>
+  <h1>Concept&nbsp;Collider</h1>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search concepts…" autocomplete="off" spellcheck="false">
+    <div id="results" class="results hidden"></div>
+  </div>
+  <div class="slots">
+    <button id="slot-a" class="slot empty" data-slot="a"><span class="tag">A</span><span class="name">pick a concept</span></button>
+    <button id="slot-b" class="slot empty" data-slot="b"><span class="tag">B</span><span class="name">pick a concept</span></button>
+    <button id="collide-btn" disabled>Collide</button>
+    <button id="clear-btn" class="ghost">Clear</button>
+  </div>
+  <div class="meta" id="build-meta"></div>
+</header>
+
+<main>
+  <section id="map-pane">
+    <canvas id="map"></canvas>
+    <div id="tooltip" class="tooltip hidden"></div>
+    <div class="map-controls">
+      <label><input type="checkbox" id="show-edges" checked> edges</label>
+      <label><input type="checkbox" id="show-labels" checked> labels</label>
+      <button id="reset-view" class="ghost">reset view</button>
+    </div>
+    <div id="legend" class="legend"></div>
+    <div id="map-hint" class="hint">click a node to fill slot A, then another for slot B</div>
+  </section>
+
+  <aside id="side">
+    <nav class="tabs">
+      <button class="tab active" data-tab="collision">Collision</button>
+      <button class="tab" data-tab="suggested">Suggested pairs</button>
+      <button class="tab" data-tab="about">About</button>
+    </nav>
+
+    <div id="tab-collision" class="tab-panel active">
+      <div id="collision-empty" class="empty-state">
+        <p>Pull two concepts into the workspace to see what lies between them.</p>
+        <p class="dim">Distant pairs are the interesting ones — but only if a path
+        still exists between them. Try a suggested pair to see the difference.</p>
+      </div>
+      <div id="collision" class="hidden"></div>
+    </div>
+
+    <div id="tab-suggested" class="tab-panel">
+      <p class="dim panel-note">Pairs sampled for distance <em>and</em> bridgeability.
+      Score breakdown is shown on each — re-weight in <code>configs/*.yaml</code> and rebuild.</p>
+      <div id="suggested"></div>
+    </div>
+
+    <div id="tab-about" class="tab-panel">
+      <div id="about"></div>
+    </div>
+  </aside>
+</main>
+
+<script src="collide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

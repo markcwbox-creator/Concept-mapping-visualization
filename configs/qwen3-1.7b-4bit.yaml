@@ -1,0 +1,50 @@
+# Default local build: Qwen3-1.7B in 4-bit NF4.
+# Fits comfortably in 4 GB VRAM alongside a desktop session.
+#
+# Rough cost on a 4 GB card: ~155 concepts x 4 templates in well under a
+# minute; 10k concepts in roughly 20-30 minutes. Extraction is the only
+# stage that needs the GPU.
+
+concepts: data/concepts/seed_concepts.jsonl
+probes: data/probes/example_probes.jsonl
+build_dir: data/build
+web_data_dir: web/data
+
+encoder: hf_residual
+model: Qwen/Qwen3-1.7B
+# 28 blocks; leave `layer` null to take layer_frac, or set it from the
+# output of `python -m collider sweep`.
+layer: null
+layer_frac: 0.65
+pooling: mean
+templates: default
+batch_size: 16
+max_length: 128
+load_in_4bit: true
+dtype: float16
+
+# Isotropy correction. Do not turn these off without reading docs/DESIGN.md.
+center: true
+remove_top_k: null   # null -> dim//100 clamped to [2, 8]
+whiten: false
+
+knn_k: 24
+edges_per_node: 8
+
+n_pairs: 200
+distance_percentile: 92.0
+target_hops: 4.0
+max_per_domain_pair: 6
+max_per_concept: 4
+pair_weights:
+  distance: 1.0
+  bridgeability: 1.4
+  domain_gap: 0.6
+  midpoint_gap: 1.0
+  analogy: 0.5
+
+layout: auto
+layout_dims: 2
+reduced_dim: 256
+embed_vectors: true
+seed: 0

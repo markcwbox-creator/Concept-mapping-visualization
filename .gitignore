@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Build artifacts. `vectors.npy` for 10k concepts is ~80 MB and is
+# reproducible from configs/ + the concept list, so it does not belong in git.
+data/build/vectors.npy
+data/build/vectors.meta.json
+data/build/knn.npz
+data/build/space.npz
+data/build/graph.json
+data/build/vectors.i8
+data/build/pairs.json
+data/build/layer_sweep.json
+
+# The committed smoke build under web/data is deliberate: it lets anyone open
+# the front end without a GPU. Real builds overwrite it locally.
+data/build/space.json
