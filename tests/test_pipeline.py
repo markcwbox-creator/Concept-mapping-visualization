@@ -330,12 +330,10 @@ def test_js_matches_python_collision(tmp_path):
     py = collide(prepared.vectors, concepts, knn, a, b, top_n=6)
 
     script = tmp_path / "run.mjs"
+    collide_js = (ROOT / "web" / "js" / "collide.js").as_uri()
     script.write_text(f"""
 import {{ readFileSync }} from 'node:fs';
-const src = readFileSync({str(ROOT / 'web' / 'collide.js')!r}, 'utf8');
-const g = {{}};
-new Function('globalThis', src)(g);
-const C = g.Collider;
+const C = await import({collide_js!r});
 const graph = JSON.parse(readFileSync({str(graph_path)!r}, 'utf8'));
 const buf = readFileSync({str(ROOT / 'web' / 'data' / 'vectors.i8')!r});
 const vecs = C.dequantise(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength),
@@ -361,12 +359,22 @@ console.log(JSON.stringify({{
     assert out.returncode == 0, out.stderr
     js = json.loads(out.stdout)
 
-    # int8 quantisation and the PCA projection mean the two will not agree to
-    # machine precision; they must agree on the ranking and to ~2 decimals.
-    assert js["distance"] == pytest.approx(py.distance, abs=0.02)
+    # The client works from int8-quantised vectors, so the two sides agree on
+    # the maths but not to machine precision. What must hold exactly:
+    #   * the distance, to well inside the width of a bin
+    #   * the graph path, which is discrete and cannot drift
+    #   * the top-ranked bridge in each group
+    # What deliberately is not asserted: the exact order of ranks 2 and 3.
+    # Adjacent bridge scores are routinely within ~0.003 of each other, which is
+    # below the quantisation noise floor, so requiring a strict order here would
+    # produce a test that fails on numerically irrelevant reorderings. The set
+    # membership is still pinned, which is what catches a real logic change.
+    assert js["distance"] == pytest.approx(py.distance, abs=0.005)
     assert js["path"] == [concepts.index_of(p) for p in py.path]
-    assert js["balanced"][:3] == [b.idx for b in py.balanced][:3]
-    assert js["midpoint"][:3] == [b.idx for b in py.midpoint][:3]
+    for group in ("balanced", "midpoint"):
+        py_idx = [b.idx for b in getattr(py, group)]
+        assert js[group][0] == py_idx[0], f"{group}: top-ranked bridge differs"
+        assert set(js[group][:3]) == set(py_idx[:3]), f"{group}: top-3 membership differs"
 
 
 # ------------------------------------------------------------------- export

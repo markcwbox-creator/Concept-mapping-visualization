@@ -1,73 +1,166 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Concept Collider</title>
+<meta name="description" content="Explore a concept map extracted from an open-weight language model.">
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
 
-<div id="banner" class="banner hidden"></div>
+<div id="app">
 
-<header>
-  <h1>Concept&nbsp;Collider</h1>
-  <div class="search">
-    <input id="search" type="search" placeholder="Search concepts…" autocomplete="off" spellcheck="false">
-    <div id="results" class="results hidden"></div>
-  </div>
-  <div class="slots">
-    <button id="slot-a" class="slot empty" data-slot="a"><span class="tag">A</span><span class="name">pick a concept</span></button>
-    <button id="slot-b" class="slot empty" data-slot="b"><span class="tag">B</span><span class="name">pick a concept</span></button>
-    <button id="collide-btn" disabled>Collide</button>
-    <button id="clear-btn" class="ghost">Clear</button>
-  </div>
-  <div class="meta" id="build-meta"></div>
-</header>
-
-<main>
-  <section id="map-pane">
-    <canvas id="map"></canvas>
-    <div id="tooltip" class="tooltip hidden"></div>
-    <div class="map-controls">
-      <label><input type="checkbox" id="show-edges" checked> edges</label>
-      <label><input type="checkbox" id="show-labels" checked> labels</label>
-      <button id="reset-view" class="ghost">reset view</button>
+  <!-- ============================================================ topbar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span class="brand-name">Concept Collider</span>
+      <span class="brand-env" id="env-badge">beta</span>
     </div>
-    <div id="legend" class="legend"></div>
-    <div id="map-hint" class="hint">click a node to fill slot A, then another for slot B</div>
-  </section>
 
-  <aside id="side">
-    <nav class="tabs">
-      <button class="tab active" data-tab="collision">Collision</button>
-      <button class="tab" data-tab="suggested">Suggested pairs</button>
-      <button class="tab" data-tab="about">About</button>
+    <div class="topbar-sep"></div>
+
+    <button class="omnibox" id="omnibox" title="Search concepts and run commands">
+      <span aria-hidden="true">⌕</span>
+      <span class="oi">Search concepts, run a command…</span>
+      <kbd id="omnibox-kbd">⌘K</kbd>
+    </button>
+
+    <div class="topbar-sep"></div>
+
+    <button class="btn sm" id="btn-random" title="Load a high-scoring suggested pair">
+      <span aria-hidden="true">⚡</span> Surprise me
+    </button>
+    <button class="btn sm" id="btn-export" title="Export the current session">
+      <span aria-hidden="true">↓</span> Export
+    </button>
+
+    <div class="topbar-spacer"></div>
+
+    <button class="btn icon ghost" id="btn-rail" title="Toggle navigator (⌘B)" aria-label="Toggle navigator">◧</button>
+    <button class="btn icon ghost" id="btn-inspector" title="Toggle inspector (⌘I)" aria-label="Toggle inspector">◨</button>
+    <button class="btn icon ghost" id="btn-theme" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    <button class="btn icon ghost" id="btn-help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>
+  </header>
+
+  <!-- ========================================================= workspace -->
+  <div class="workspace" id="workspace">
+
+    <!-- ---------------------------------------------------- left rail -->
+    <nav class="rail" id="rail" aria-label="Navigator">
+      <section class="rail-section">
+        <div class="rail-head">
+          <h2>Domains</h2>
+          <button class="btn sm ghost" id="domains-all">all</button>
+          <button class="btn sm ghost" id="domains-none">none</button>
+        </div>
+        <div class="domain-list" id="domain-list"></div>
+      </section>
+
+      <section class="rail-section grow">
+        <div class="rail-head">
+          <h2>Concepts</h2>
+          <span class="count" id="concept-count">0</span>
+        </div>
+        <input class="filter-input" id="concept-filter" type="search"
+               placeholder="Filter concepts…" autocomplete="off" spellcheck="false">
+        <div class="vlist" id="concept-list" tabindex="0">
+          <div class="vlist-sizer" id="concept-sizer">
+            <div class="vlist-window" id="concept-window"></div>
+          </div>
+        </div>
+      </section>
     </nav>
 
-    <div id="tab-collision" class="tab-panel active">
-      <div id="collision-empty" class="empty-state">
-        <p>Pull two concepts into the workspace to see what lies between them.</p>
-        <p class="dim">Distant pairs are the interesting ones — but only if a path
-        still exists between them. Try a suggested pair to see the difference.</p>
+    <div class="splitter v" id="split-rail" role="separator" aria-orientation="vertical"></div>
+
+    <!-- ---------------------------------------------------- map region -->
+    <div class="map-region" id="map-region">
+      <div class="map-pane" id="map-pane">
+        <canvas id="map-canvas"></canvas>
+
+        <div class="map-overlay tl">
+          <button class="btn sm ghost active" id="tg-edges" title="Show neighbour edges">edges</button>
+          <button class="btn sm ghost active" id="tg-labels" title="Show labels">labels</button>
+          <button class="btn sm ghost" id="tg-hulls" title="Shade domain regions">domains</button>
+          <div class="topbar-sep"></div>
+          <button class="btn sm ghost" id="btn-fit" title="Fit to view (F)">fit</button>
+          <button class="btn sm ghost" id="btn-png" title="Download the map as PNG">png</button>
+        </div>
+
+        <div class="map-overlay tr" id="map-status">
+          <span class="mono subtle" id="zoom-readout">100%</span>
+        </div>
+
+        <div class="map-overlay bl" id="legend" aria-label="Domain legend"></div>
+
+        <div class="minimap" id="minimap" title="Click or drag to navigate">
+          <canvas id="minimap-canvas"></canvas>
+        </div>
+
+        <div class="map-tooltip hidden" id="tooltip" role="tooltip"></div>
       </div>
-      <div id="collision" class="hidden"></div>
+
+      <div class="slot-bar">
+        <button class="slot slot-a empty" id="slot-a" data-slot="a">
+          <span class="badge">A</span>
+          <span class="slot-text">pick a concept</span>
+          <span class="slot-clear" aria-hidden="true">✕</span>
+        </button>
+        <button class="btn icon ghost swap-btn" id="btn-swap" title="Swap A and B (S)" aria-label="Swap A and B">⇄</button>
+        <button class="slot slot-b empty" id="slot-b" data-slot="b">
+          <span class="badge">B</span>
+          <span class="slot-text">pick a concept</span>
+          <span class="slot-clear" aria-hidden="true">✕</span>
+        </button>
+        <button class="btn primary" id="btn-collide" disabled>Collide</button>
+      </div>
+
+      <div class="splitter h" id="split-dock" role="separator" aria-orientation="horizontal"></div>
+
+      <section class="dock" id="dock" aria-label="Data">
+        <div class="dock-head">
+          <div class="tabstrip" id="dock-tabs">
+            <button class="active" data-dock="pairs">Suggested pairs <span class="pill" id="pairs-count">0</span></button>
+            <button data-dock="history">History <span class="pill" id="history-count">0</span></button>
+            <button data-dock="pinned">Pinned <span class="pill" id="pinned-count">0</span></button>
+          </div>
+          <div class="topbar-spacer"></div>
+          <button class="btn sm ghost" id="btn-dock">collapse</button>
+        </div>
+        <div class="dock-body" id="dock-body"></div>
+      </section>
     </div>
 
-    <div id="tab-suggested" class="tab-panel">
-      <p class="dim panel-note">Pairs sampled for distance <em>and</em> bridgeability.
-      Score breakdown is shown on each — re-weight in <code>configs/*.yaml</code> and rebuild.</p>
-      <div id="suggested"></div>
-    </div>
+    <div class="splitter v" id="split-inspector" role="separator" aria-orientation="vertical"></div>
 
-    <div id="tab-about" class="tab-panel">
-      <div id="about"></div>
-    </div>
-  </aside>
-</main>
+    <!-- ----------------------------------------------------- inspector -->
+    <aside class="inspector" id="inspector" aria-label="Inspector">
+      <div class="inspector-head">
+        <div class="tabstrip" id="inspector-tabs">
+          <button class="active" data-panel="collision">Collision</button>
+          <button data-panel="concept">Concept</button>
+          <button data-panel="diagnostics">Diagnostics</button>
+        </div>
+      </div>
+      <div class="inspector-body">
+        <div class="panel active" id="panel-collision"></div>
+        <div class="panel" id="panel-concept"></div>
+        <div class="panel" id="panel-diagnostics"></div>
+      </div>
+    </aside>
+  </div>
 
-<script src="collide.js"></script>
-<script src="app.js"></script>
+  <!-- ========================================================= statusbar -->
+  <footer class="statusbar" id="statusbar"></footer>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div id="overlay-root"></div>
+
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

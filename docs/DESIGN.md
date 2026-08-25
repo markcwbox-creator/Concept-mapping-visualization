@@ -98,10 +98,15 @@ noise. That operation is the entire point of this project.
 
 The correction, in `space.py`, in order: centre → project out the top-k
 principal components (Mu & Viswanath's "all-but-the-top") → optional whitening
-→ L2 normalise. On the seed list this moves mean cosine from 0.257 to -0.006
-while *increasing* the spread. `isotropy_report` prints before and after on
-every build; if that gap does not appear, stop and find out why before reading
-anything into the map.
+→ L2 normalise.
+
+Measured on the real Qwen3-1.7B build (layer 18, 153 concepts): mean cosine
+**0.838 → −0.007**, spread **0.027 → 0.070**. A mean of 0.838 with a standard
+deviation of 0.027 puts every pair in the space between roughly 0.76 and 0.92 —
+percentile-based pair sampling would have been sampling noise in the third
+decimal. `isotropy_report` prints before and after on every build; if that gap
+does not appear, stop and find out why before reading anything into the map.
+Full numbers in [FINDINGS.md](FINDINGS.md).
 
 Whitening is off by default. It sharpens distances further but discards the
 importance ordering of directions and amplifies noise when the covariance
@@ -156,6 +161,12 @@ measured with SAE feature overlap (§8).
 makes them *topicality* measures. A layer that maximises them may simply be
 good at coarse subject classification — which is not the same as good
 conceptual geometry, and is arguably the opposite of what this project wants.
+
+This is not hypothetical. On the real build, `domain_purity` climbs almost
+monotonically to the final layer (0.216 at layer 28) while `probe_accuracy`
+peaks mid-stack (0.923 at layer 16) and falls away. Choosing a layer by domain
+purity — the obvious metric, because it needs no hand-labelling — picks close to
+the worst layer for this project's purpose. See [FINDINGS.md §2](FINDINGS.md).
 
 `probe_accuracy` is the one that matters: hand-written triplets of the form
 "A should be closer to B than to C", encoding the relations you actually care

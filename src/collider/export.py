@@ -46,17 +46,40 @@ def quantise_int8(vectors: np.ndarray) -> tuple[np.ndarray, float]:
 
 
 def reduce_dims(vectors: np.ndarray, dim: int, seed: int = 0) -> tuple[np.ndarray, dict]:
-    """PCA down to `dim`, then re-normalise so cosine stays cosine."""
+    """Project onto the top `dim` singular directions, preserving cosine.
+
+    Deliberately does **not** re-centre. The input has already been through
+    `space.prepare`, so it is centred and L2-normalised; subtracting the mean a
+    second time (the textbook PCA step) shifts every vector and changes the
+    cosines the browser computes, so the map would quietly disagree with the
+    CLI about how far apart two concepts are.
+
+    Projecting the uncentred matrix onto its own right singular vectors is an
+    orthogonal transform of the span, so inner products — and therefore every
+    cosine downstream — are preserved exactly whenever the retained directions
+    cover the data (always true when `dim >= n_concepts`, and to within
+    `variance_retained` otherwise). `test_js_matches_python_collision` pins
+    this: it is the only thing standing between the two implementations and a
+    silent disagreement.
+    """
     if dim >= vectors.shape[1]:
         return vectors, {"reduced": False, "dim": int(vectors.shape[1])}
-    x = vectors - vectors.mean(axis=0)
-    _, s, vt = np.linalg.svd(x, full_matrices=False)
-    proj = x @ vt[:dim].T
+    _, s, vt = np.linalg.svd(vectors, full_matrices=False)
+    # `full_matrices=False` yields only min(n_concepts, d_model) directions, so
+    # a concept list smaller than the requested width silently produces a
+    # narrower matrix. Take the true width from the array rather than from the
+    # request, or graph.json ends up declaring a dimension the blob does not
+    # have and the browser reads garbage.
+    dim = min(dim, vt.shape[0])
+    proj = vectors @ vt[:dim].T
+    # Norms are preserved by the projection up to the discarded tail; renormalise
+    # so any residual drift cannot accumulate into the quantisation step.
     proj /= np.linalg.norm(proj, axis=1, keepdims=True) + 1e-8
     kept = float((s[:dim] ** 2).sum() / (s**2).sum())
-    log.info("PCA %d -> %d dims, %.1f%% variance retained", vectors.shape[1], dim, kept * 100)
+    log.info("projected %d -> %d dims, %.2f%% of variance retained",
+             vectors.shape[1], proj.shape[1], kept * 100)
     return proj.astype(np.float32), {
-        "reduced": True, "dim": dim, "variance_retained": kept,
+        "reduced": True, "dim": int(proj.shape[1]), "variance_retained": kept,
     }
 
 
@@ -139,12 +162,16 @@ def export_graph(
         q, scale = quantise_int8(reduced)
         (out / "vectors.i8").write_bytes(q.tobytes())
         payload["vectors"] = {
+            **red_meta,
+            # These four are measured from the array actually written, and are
+            # listed last so they win over anything red_meta reports. The blob
+            # is raw bytes with no header: if `n` or `dim` here disagree with
+            # it by even one, every vector the client reads is shifted.
             "file": "vectors.i8",
             "dtype": "int8",
             "n": int(q.shape[0]),
             "dim": int(q.shape[1]),
             "scale": scale,
-            **red_meta,
         }
         log.info("wrote vectors.i8 (%.2f MB)", q.nbytes / 1e6)
 

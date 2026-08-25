@@ -11,6 +11,9 @@ web front end where any two concepts can be pulled together and collided live.
 
 ![the collider workspace](docs/screenshot.png)
 
+The build shown is real: Qwen3-1.7B, layer 18 of 28, 153 concepts. See
+[docs/FINDINGS.md](docs/FINDINGS.md) for what came out of it.
+
 ---
 
 ## Quick start
@@ -18,17 +21,15 @@ web front end where any two concepts can be pulled together and collided live.
 ```bash
 pip install -r requirements.txt
 
-# 1. See the interface immediately, with no GPU and no downloads.
-#    (Structurally real; semantically meaningless — random-weight toy model.)
-python scripts/make_smoke_build.py
+# A real build is committed under web/data, so the UI works immediately:
 python -m collider serve          # -> http://127.0.0.1:8000
 
-# 2. Measure which layer to use, rather than guessing.
+# Build your own. Measure the layer first rather than guessing:
 python -m collider sweep --config configs/qwen3-1.7b-4bit.yaml --limit 300
+python -m collider all   --config configs/qwen3-1.7b-4bit.yaml
 
-# 3. Build for real. Extraction is the only stage that needs a GPU.
-python -m collider all --config configs/qwen3-1.7b-4bit.yaml
-python -m collider serve
+# No GPU? This runs Qwen3-1.7B at fp32 on CPU (~4 min for the seed list):
+python -m collider all --config configs/qwen3-1.7b-cpu.yaml
 ```
 
 Collide two concepts without leaving the terminal:
@@ -72,7 +73,9 @@ to condition on.
 **The geometry gets corrected before anything is measured.** Raw LLM activations
 are anisotropic — random unrelated concepts sit at cosine 0.7-0.95, so
 "distance" carries almost no signal. Centring plus all-but-the-top removal
-takes the seed build from mean cosine **0.257 → -0.006** with a *wider* spread.
+takes the real Qwen3-1.7B build from mean cosine **0.838 → −0.007** while
+*widening* the spread from 0.027 to 0.070. Before correction, every pair of
+concepts sat between 0.76 and 0.92 similarity — nothing was far from anything.
 Every build prints this before/after, because if it doesn't happen the map is
 decoration. See [docs/DESIGN.md §4](docs/DESIGN.md).
 
@@ -95,11 +98,18 @@ breakdown so you can re-weight after seeing results.
 A **blend vacancy above 1** means nothing in your map names that blend — a
 description without a word, which is the case worth looking at.
 
-**The front end has no dependencies.** No build step, no CDN, no framework.
+**The front end is a real application, with no dependencies.** No build step, no
+CDN, no framework — ES modules, Canvas 2-D and about 570 lines of CSS over a
+token-based design system. It has a command palette (`⌘K`), a virtualised
+concept navigator that behaves the same at 150 or 150,000 concepts, resizable
+panels, a sortable data grid over every scoring feature, live diagnostics
+charts, light/dark themes, pinning with notes that survive reload, JSON/CSV/PNG
+export, and full keyboard control.
+
 Layout is precomputed in Python (a browser force simulation lands somewhere
-different every reload, destroying spatial memory), but PCA-reduced int8
-vectors ship to the client, so *any* pair collides live in a couple of
-milliseconds without a server.
+different every reload, destroying spatial memory), but projected int8 vectors
+ship to the client, so *any* pair collides live — typically in under 6 ms —
+with no server.
 
 ---
 
@@ -124,11 +134,27 @@ src/collider/
   pipeline.py          stage orchestration
   __main__.py          CLI: sweep | extract | build | all | collide | serve
 
-web/                   index.html, app.js, collide.js, style.css — zero dependencies
+web/
+  index.html           application shell
+  styles/tokens.css    design tokens; light/dark live here and nowhere else
+  styles/app.css       shell, panels, components
+  js/store.js          observable state + localStorage persistence
+  js/data.js           payload loading and validation
+  js/collide.js        collision maths (parity-tested against bridges.py)
+  js/main.js           wiring, keyboard shortcuts, collisions
+  js/ui/mapview.js     canvas map: LOD, minimap, focus mode, PNG export
+  js/ui/navigator.js   domain filters + virtualised concept list
+  js/ui/inspector.js   collision / concept / diagnostics panels
+  js/ui/dock.js        sortable grids: pairs, history, pinned
+  js/ui/palette.js     command palette with subsequence matching
+  js/ui/charts.js      inline SVG charts
+  js/ui/shell.js       toasts, modals, splitters, status bar, theme
 data/concepts/         seed_concepts.jsonl (153 concepts, 18 domains)
 data/probes/           hand-written triplets for honest evaluation
-configs/               qwen3-1.7b-4bit · llama31-8b-sae · minilm-cpu
+configs/               qwen3-1.7b-4bit · qwen3-1.7b-cpu · llama31-8b-sae · minilm-cpu
 docs/DESIGN.md         the arguments, and where this is most likely wrong
+docs/FINDINGS.md       measurements from the first real build
+docs/COLAB.md          splitting extraction onto a cloud GPU
 tests/                 29 tests, including Python↔JavaScript parity
 ```
 
@@ -164,9 +190,17 @@ apart.
 ## Status
 
 Beta. The pipeline, the geometry corrections, the pair scoring and the front end
-all work and are tested. What has not been validated is the part that matters
-most: whether the pairs it surfaces are *actually* generative for a human. See
-[docs/DESIGN.md](docs/DESIGN.md) for where this is most likely to be wrong.
+all work, are tested, and have been run end-to-end on a real model.
+
+Two things are worth knowing before you read anything into a map:
+
+1. **153 concepts is too few.** Top-neighbour similarities sit only two to four
+   standard deviations above random, so many "bridges" are the least arbitrary
+   of several arbitrary options. More concepts will help far more than a bigger
+   model — see [docs/FINDINGS.md §3](docs/FINDINGS.md).
+2. **Nothing here shows the pairs are generative for a human.** That is the
+   load-bearing unknown, and no amount of engineering settles it. The pin-and-note
+   workflow exists to collect that evidence.
 
 ## Licence
 

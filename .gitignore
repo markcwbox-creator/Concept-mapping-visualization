@@ -16,6 +16,8 @@ data/build/vectors.i8
 data/build/pairs.json
 data/build/layer_sweep.json
 
-# The committed smoke build under web/data is deliberate: it lets anyone open
-# the front end without a GPU. Real builds overwrite it locally.
+# The build committed under web/data is deliberate: it lets anyone open the
+# front end and click through a real collision without owning a GPU. It is a
+# genuine Qwen3-1.7B build (see docs/FINDINGS.md), not a fixture. Your own
+# `collider build` overwrites it locally; commit it only if you mean to.
 data/build/space.json

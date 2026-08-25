@@ -1,0 +1,142 @@
+[
+  {
+    "layer": 2,
+    "depth_frac": 0.071,
+    "domain_purity": 0.0961,
+    "triplet_accuracy": 0.6016,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.061,
+    "effective_rank": 117.1,
+    "probe_accuracy": 0.6538
+  },
+  {
+    "layer": 4,
+    "depth_frac": 0.143,
+    "domain_purity": 0.1039,
+    "triplet_accuracy": 0.6018,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0608,
+    "effective_rank": 117.6,
+    "probe_accuracy": 0.6154
+  },
+  {
+    "layer": 6,
+    "depth_frac": 0.214,
+    "domain_purity": 0.1078,
+    "triplet_accuracy": 0.5982,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.063,
+    "effective_rank": 115.8,
+    "probe_accuracy": 0.7308
+  },
+  {
+    "layer": 8,
+    "depth_frac": 0.286,
+    "domain_purity": 0.1503,
+    "triplet_accuracy": 0.636,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0618,
+    "effective_rank": 116.7,
+    "probe_accuracy": 0.8077
+  },
+  {
+    "layer": 10,
+    "depth_frac": 0.357,
+    "domain_purity": 0.1438,
+    "triplet_accuracy": 0.636,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0637,
+    "effective_rank": 115.2,
+    "probe_accuracy": 0.7308
+  },
+  {
+    "layer": 12,
+    "depth_frac": 0.429,
+    "domain_purity": 0.1503,
+    "triplet_accuracy": 0.636,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0681,
+    "effective_rank": 111.8,
+    "probe_accuracy": 0.7692
+  },
+  {
+    "layer": 14,
+    "depth_frac": 0.5,
+    "domain_purity": 0.1327,
+    "triplet_accuracy": 0.6238,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0682,
+    "effective_rank": 112.1,
+    "probe_accuracy": 0.8077
+  },
+  {
+    "layer": 16,
+    "depth_frac": 0.571,
+    "domain_purity": 0.1255,
+    "triplet_accuracy": 0.6344,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0695,
+    "effective_rank": 111.0,
+    "probe_accuracy": 0.9231
+  },
+  {
+    "layer": 18,
+    "depth_frac": 0.643,
+    "domain_purity": 0.1431,
+    "triplet_accuracy": 0.6366,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0698,
+    "effective_rank": 110.3,
+    "probe_accuracy": 0.8846
+  },
+  {
+    "layer": 20,
+    "depth_frac": 0.714,
+    "domain_purity": 0.1556,
+    "triplet_accuracy": 0.645,
+    "mean_cosine": -0.0065,
+    "cosine_std": 0.0707,
+    "effective_rank": 110.0,
+    "probe_accuracy": 0.8077
+  },
+  {
+    "layer": 22,
+    "depth_frac": 0.786,
+    "domain_purity": 0.2007,
+    "triplet_accuracy": 0.6676,
+    "mean_cosine": -0.0064,
+    "cosine_std": 0.0703,
+    "effective_rank": 110.2,
+    "probe_accuracy": 0.8077
+  },
+  {
+    "layer": 24,
+    "depth_frac": 0.857,
+    "domain_purity": 0.2105,
+    "triplet_accuracy": 0.6792,
+    "mean_cosine": -0.0064,
+    "cosine_std": 0.0691,
+    "effective_rank": 111.4,
+    "probe_accuracy": 0.8077
+  },
+  {
+    "layer": 26,
+    "depth_frac": 0.929,
+    "domain_purity": 0.2007,
+    "triplet_accuracy": 0.6768,
+    "mean_cosine": -0.0064,
+    "cosine_std": 0.0658,
+    "effective_rank": 114.1,
+    "probe_accuracy": 0.7308
+  },
+  {
+    "layer": 28,
+    "depth_frac": 1.0,
+    "domain_purity": 0.2163,
+    "triplet_accuracy": 0.688,
+    "mean_cosine": -0.0064,
+    "cosine_std": 0.066,
+    "effective_rank": 114.0,
+    "probe_accuracy": 0.8462
+  }
+]

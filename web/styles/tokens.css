@@ -1,0 +1,200 @@
+/* =============================================================================
+   Design tokens.
+
+   One layer of semantic tokens over a small primitive palette. Components only
+   ever reference the semantic names, so retheming — including the light/dark
+   swap — happens entirely in this file and nothing else has to know.
+
+   Theme resolution has three states, matching how people actually configure
+   machines: an explicit choice stamps `data-theme` on <html>; the default
+   "system" setting stamps nothing and defers to `prefers-color-scheme`.
+   ========================================================================== */
+
+:root {
+  /* ---- primitives ------------------------------------------------------ */
+  --grey-950: #0b0e14;
+  --grey-900: #11151c;
+  --grey-850: #161b24;
+  --grey-800: #1c222d;
+  --grey-750: #232a36;
+  --grey-700: #2b3340;
+  --grey-600: #3d4756;
+  --grey-500: #5c6675;
+  --grey-400: #7d8797;
+  --grey-300: #9aa4b2;
+  --grey-200: #c2cad6;
+  --grey-100: #e3e8ef;
+  --grey-050: #f4f6fa;
+  --white: #ffffff;
+
+  --blue-600: #1f6feb;
+  --blue-500: #3b82f6;
+  --blue-400: #58a6ff;
+  --blue-300: #8ec5ff;
+
+  --green-500: #2ea043;
+  --amber-500: #d29922;
+  --red-500: #f85149;
+  --violet-500: #8957e5;
+
+  /* ---- typography ------------------------------------------------------ */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-lg: 15px;
+  --text-xl: 19px;
+  --text-2xl: 26px;
+
+  /* ---- spacing / geometry ---------------------------------------------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --topbar-h: 48px;
+  --statusbar-h: 26px;
+
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 140ms;
+
+  /* ---- semantic: dark is the product default --------------------------- */
+  --bg-app: var(--grey-950);
+  --bg-surface: var(--grey-900);
+  --bg-raised: var(--grey-850);
+  --bg-inset: var(--grey-800);
+  --bg-hover: var(--grey-750);
+  --bg-active: var(--grey-700);
+  --bg-canvas: #0d1017;
+  --bg-overlay: rgba(11, 14, 20, .72);
+
+  --border: var(--grey-700);
+  --border-strong: var(--grey-600);
+  --border-subtle: rgba(125, 135, 151, .16);
+
+  --fg: var(--grey-100);
+  --fg-muted: var(--grey-300);
+  --fg-subtle: var(--grey-400);
+  --fg-inverted: var(--grey-950);
+
+  --accent: var(--blue-400);
+  --accent-strong: var(--blue-500);
+  --accent-fg: #06101d;
+  --accent-wash: rgba(88, 166, 255, .12);
+  --accent-wash-strong: rgba(88, 166, 255, .22);
+
+  --pole-a: var(--blue-400);
+  --pole-b: var(--amber-500);
+
+  --success: var(--green-500);
+  --warning: var(--amber-500);
+  --danger: var(--red-500);
+  --info: var(--violet-500);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, .6);
+
+  --grid-line: rgba(125, 135, 151, .07);
+  --edge-stroke: 125, 135, 151;
+}
+
+/* Light theme. Redefines only the semantic layer — never a primitive, and
+   never a colour whose sole definition lives inside this block. */
+:root[data-theme="light"] {
+  --bg-app: var(--grey-050);
+  --bg-surface: var(--white);
+  --bg-raised: var(--white);
+  --bg-inset: var(--grey-050);
+  --bg-hover: var(--grey-100);
+  --bg-active: var(--grey-200);
+  --bg-canvas: #fbfcfe;
+  --bg-overlay: rgba(255, 255, 255, .78);
+
+  --border: var(--grey-200);
+  --border-strong: var(--grey-300);
+  --border-subtle: rgba(92, 102, 117, .16);
+
+  --fg: var(--grey-900);
+  --fg-muted: var(--grey-500);
+  --fg-subtle: var(--grey-400);
+  --fg-inverted: var(--white);
+
+  --accent: var(--blue-600);
+  --accent-strong: var(--blue-600);
+  --accent-fg: var(--white);
+  --accent-wash: rgba(31, 111, 235, .09);
+  --accent-wash-strong: rgba(31, 111, 235, .16);
+
+  --pole-a: var(--blue-600);
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, .06);
+  --shadow-md: 0 6px 18px rgba(16, 24, 40, .1);
+  --shadow-lg: 0 18px 48px rgba(16, 24, 40, .16);
+
+  --grid-line: rgba(92, 102, 117, .07);
+  --edge-stroke: 92, 102, 117;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-app: var(--grey-050);
+    --bg-surface: var(--white);
+    --bg-raised: var(--white);
+    --bg-inset: var(--grey-050);
+    --bg-hover: var(--grey-100);
+    --bg-active: var(--grey-200);
+    --bg-canvas: #fbfcfe;
+    --bg-overlay: rgba(255, 255, 255, .78);
+
+    --border: var(--grey-200);
+    --border-strong: var(--grey-300);
+    --border-subtle: rgba(92, 102, 117, .16);
+
+    --fg: var(--grey-900);
+    --fg-muted: var(--grey-500);
+    --fg-subtle: var(--grey-400);
+    --fg-inverted: var(--white);
+
+    --accent: var(--blue-600);
+    --accent-strong: var(--blue-600);
+    --accent-fg: var(--white);
+    --accent-wash: rgba(31, 111, 235, .09);
+    --accent-wash-strong: rgba(31, 111, 235, .16);
+
+    --pole-a: var(--blue-600);
+
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .06);
+    --shadow-md: 0 6px 18px rgba(16, 24, 40, .1);
+    --shadow-lg: 0 18px 48px rgba(16, 24, 40, .16);
+
+    --grid-line: rgba(92, 102, 117, .07);
+    --edge-stroke: 92, 102, 117;
+  }
+}
+
+/* Categorical ramp for domains. Chosen for separation at small dot sizes in
+   both themes, and ordered so adjacent entries stay distinguishable for the
+   most common forms of colour vision deficiency. */
+:root {
+  --cat-01: #4e79a7; --cat-02: #f28e2b; --cat-03: #59a14f; --cat-04: #e15759;
+  --cat-05: #b07aa1; --cat-06: #76b7b2; --cat-07: #edc948; --cat-08: #ff9da7;
+  --cat-09: #9c755f; --cat-10: #86bcb6; --cat-11: #d37295; --cat-12: #a0cbe8;
+  --cat-13: #8cd17d; --cat-14: #b6992d; --cat-15: #499894; --cat-16: #f1ce63;
+  --cat-17: #d7b5a6; --cat-18: #79706e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
