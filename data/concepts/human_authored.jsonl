@@ -1,0 +1,66 @@
+// ============================================================================
+// HUMAN-AUTHORED CONCEPTS — NOT WRITTEN OR EDITED BY AN LLM
+// ============================================================================
+//
+// Ctrl-F ANCHORS (this file is deliberately structured for keyboard navigation):
+//
+//   "BEGIN RELIGION"   line 47   ->  "END RELIGION"   line 53
+//   "BEGIN CONTESTED"  line 55   ->  "END CONTESTED"  line 61
+//   "BEGIN OTHER"      line 63   ->  "END OTHER"      line 66
+//
+// Everything between a BEGIN and its END is yours. Nothing in this file is
+// generated, and no agent is permitted to write into it — that is the point.
+// `scripts/stage_review.py` and the build treat it as a normal concept source,
+// so entries here merge with the rest of the map with no special handling.
+//
+// FORMAT (identical to seed_concepts.jsonl):
+//   {"label": "...", "definition": "...", "domain": "..."}
+//   - one sentence, ~12-22 words, describes what it IS and DOES
+//   - no hedging ("refers to", "the idea that"), British spelling
+//   - `domain` may be a new string; it does not have to be one of the 18
+//
+// ----------------------------------------------------------------------------
+// EDITORIAL STANDARD FOR THIS FILE (as specified by the repository owner)
+// ----------------------------------------------------------------------------
+//
+// 1. POLITICAL STANCE: cold realism. Describe how a thing actually operates and
+//    what it actually costs, without approving or condemning it. Treat power,
+//    interest and constraint as ordinary facts.
+//
+// 2. ECONOMIC BASELINE: regulated market economy. Neither anarcho-capitalism
+//    nor central planning is treated as the default against which others are
+//    deviations. Both are describable; neither is the frame.
+//
+// 3. SOCIAL BASELINE: the mainstream standard of roughly 1960, used as a fixed
+//    reference point rather than as an endorsement. The purpose is a stable
+//    zero, not a moral claim.
+//
+// 4. OMIT BY DEFAULT: topics that are politically contested in current practice
+//    AND carry no cross-field structural value — sexual ethics being the clear
+//    case. A concept earns its place here only if its STRUCTURE transfers to
+//    another field. If the only reason to include it is that it is argued
+//    about, leave it out.
+//
+// 5. WHEN IN DOUBT, SAY LESS. An omitted concept costs coverage. A tendentious
+//    one costs the credibility of every other row in the map.
+//
+// === BEGIN RELIGION ===
+// Owner-authored. Rough structural framing is fine; these are mechanisms
+// (covenant, sacrifice, orthodoxy/heresy boundary maintenance, canon formation,
+// schism, apostolic succession, sabbath, tithe) rather than truth claims about
+// any faith. Describe the institution and its dynamics, not its validity.
+
+// === END RELIGION ===
+
+// === BEGIN CONTESTED ===
+// Owner-authored. Politically live concepts that DO carry transferable
+// structure and therefore earn inclusion despite the contest around them.
+// Apply the editorial standard above. If a row cannot be written flatly, it
+// does not belong in the map.
+
+// === END CONTESTED ===
+
+// === BEGIN OTHER ===
+// Anything else you want to add by hand.
+
+// === END OTHER ===

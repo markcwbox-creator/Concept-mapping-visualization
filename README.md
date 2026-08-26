@@ -14,6 +14,33 @@ web front end where any two concepts can be pulled together and collided live.
 The build shown is real: Qwen3-1.7B, layer 18 of 28, 153 concepts. See
 [docs/FINDINGS.md](docs/FINDINGS.md) for what came out of it.
 
+## Provenance — read this before trusting any number
+
+| artefact | author | reviewed by a human? |
+|---|---|---|
+| concept definitions | LLM | no |
+| structural signatures | LLM | no |
+| analogy triplets (`data/probes/`) | LLM | **no** |
+| `data/concepts/human_authored.jsonl` | human | n/a |
+| code, corrections, measurements | LLM, verified by execution | outputs reproducible |
+
+**Everything except `human_authored.jsonl` was written by a language model.**
+An earlier version of this repository described the probe triplets as
+"hand-written". They were composed by hand rather than generated
+programmatically, but no human wrote or checked them, and calling them
+hand-written was misleading. That matters because `probe_accuracy` scores one
+model's embeddings against another model's analogy key, over definitions the
+same model wrote — it is agreement between two models, not a measurement
+against ground truth.
+
+What survives that objection: the anisotropy result (pure geometry, no labels),
+the two export bugs (facts about code), and the refuted structural-signature
+hypothesis in FINDINGS §5 — contamination would have inflated the loser, not
+sunk it. What does not survive it: every accuracy figure, until the labels
+carry a human judgement. `web/review.html` exists to fix exactly that.
+
+See [docs/RED_TEAM.md](docs/RED_TEAM.md) for the full adversarial audit.
+
 ---
 
 ## Quick start
@@ -170,7 +197,7 @@ web/
   js/ui/charts.js      inline SVG charts
   js/ui/shell.js       toasts, modals, splitters, status bar, theme
 data/concepts/         seed_concepts.jsonl (153 concepts, 18 domains)
-data/probes/           hand-written triplets for honest evaluation
+data/probes/           analogy triplets for evaluation (see Provenance)
 configs/               qwen3-1.7b-4bit · qwen3-1.7b-cpu · llama31-8b-sae · minilm-cpu
 docs/DESIGN.md         the arguments, and where this is most likely wrong
 docs/FINDINGS.md       measurements from the first real build

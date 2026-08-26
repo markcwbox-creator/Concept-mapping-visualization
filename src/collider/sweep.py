@@ -17,7 +17,7 @@ Two metrics, deliberately different in character:
                       is the same-domain one closer? Same caveat, less
                       sensitive to cluster size imbalance.
 ``probe_accuracy``    Optional and much better, if you will spend an hour on it:
-                      hand-written triplets of the form "A should be closer to
+                      LLM-written triplets of the form "A should be closer to
                       B than to C" that encode the relations *you* care about
                       (analogy, mechanism, part-of), not just topic. 100-200 of
                       these are worth more than any amount of domain purity.
@@ -81,7 +81,14 @@ def triplet_accuracy(
 def probe_accuracy(
     vectors: np.ndarray, concepts: ConceptSet, probes: Sequence[dict[str, str]]
 ) -> float:
-    """Accuracy on hand-written `{anchor, closer, farther}` triplets."""
+    """Accuracy on `{anchor, closer, farther}` triplets.
+
+    NOTE ON WHAT THIS MEASURES. If the triplets were written by a language
+    model, and the concept definitions were too, this number is agreement
+    between two models rather than agreement with ground truth. It is only an
+    independent metric once a human has reviewed the labels. The shipped probe
+    file is not yet in that state — see docs/RED_TEAM.md.
+    """
     ok = 0
     used = 0
     for t in probes:

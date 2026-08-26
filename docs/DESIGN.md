@@ -168,7 +168,8 @@ peaks mid-stack (0.923 at layer 16) and falls away. Choosing a layer by domain
 purity — the obvious metric, because it needs no hand-labelling — picks close to
 the worst layer for this project's purpose. See [FINDINGS.md §2](FINDINGS.md).
 
-`probe_accuracy` is the one that matters: hand-written triplets of the form
+`probe_accuracy` is the one that matters *once a human has reviewed it*:
+triplets of the form
 "A should be closer to B than to C", encoding the relations you actually care
 about (mechanism, analogy, part-of) rather than shared topic. 100-200 of these
 are worth more than any amount of domain purity.

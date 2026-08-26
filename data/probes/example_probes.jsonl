@@ -1,4 +1,15 @@
-// Hand-written triplets: "anchor should be closer to `closer` than to `farther`".
+// Triplets: "anchor should be closer to `closer` than to `farther`".
+//
+// PROVENANCE: these 26 were written by an LLM (Claude), not by a human. They
+// were composed by hand rather than generated programmatically, which is what
+// an earlier version of this header misleadingly called "hand-written" — but
+// no human authored or reviewed them. That matters enormously, because the
+// concept definitions and the structural signatures they are scored against
+// come from the same source. `probe_accuracy` measured on this file is
+// therefore the rate at which Qwen3-1.7B agrees with Claude, on text Claude
+// also wrote — NOT an independent measurement. Treat every number derived from
+// it as provisional until the rows carry a human judgement.
+// See docs/RED_TEAM.md and the review tool (web/review.html).
 // These encode *relational* structure (mechanism, analogy, part-of), not topic
 // overlap, which is exactly what domain_purity cannot measure. A layer that
 // wins on domain purity but loses here is doing subject classification, not

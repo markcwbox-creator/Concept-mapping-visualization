@@ -39,7 +39,7 @@ From `docs/layer_sweep_qwen3-1.7b.txt`:
 | 28 | 1.00 | **0.216** | 0.846 |
 
 `domain_purity` climbs almost monotonically into the final layer.
-`probe_accuracy` — hand-written triplets encoding *relations* (mechanism,
+`probe_accuracy` — triplets encoding *relations* (mechanism,
 analogy, part-of) — peaks in the middle of the stack and falls away.
 
 This is the design doc's caveat showing up in real data: **a late layer is

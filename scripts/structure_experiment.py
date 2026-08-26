@@ -5,7 +5,7 @@ The claim under test: for retrieving a known cross-field structural analogue,
 embedding a domain-neutral *structural signature* beats embedding the concept's
 *definition*.
 
-Method. `data/probes/example_probes.jsonl` contains hand-labelled triplets
+Method. `data/probes/example_probes.jsonl` contains LLM-written triplets
 written before any of this existed, 21 of which carry an explicit note that the
 pair is a structural analogy (`natural selection` / `gradient descent`,
 `caching` / `immune memory`, `hysteresis` / `learned helplessness`, ...). For
