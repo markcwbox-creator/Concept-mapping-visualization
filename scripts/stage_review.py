@@ -96,6 +96,36 @@ def validate_triplets(rows: list[dict], known: set[str]) -> tuple[list[dict], li
     return good, problems
 
 
+def collapse_reverse_pairs(rows: list[dict]) -> tuple[list[dict], int]:
+    """Keep one direction per concept pair.
+
+    A triplet asserting `A is closer to B than to C` and one asserting `B is
+    closer to A than to D` make the SAME underlying claim — that A and B share
+    a structure — with different distractors. They are not identical
+    judgements, but once a reviewer has affirmed A~B the reverse is largely
+    predictable, so the second one buys little and costs the same attention.
+
+    On the first generated batch this was 36% of rows, so collapsing is worth
+    real minutes. It is also harmless downstream: `scripts/structure_experiment.py`
+    already scores retrieval symmetrically, taking the better of the two
+    directions, so it never needed both.
+
+    Where both directions exist, keep the one whose anchor has FEWER triplets
+    overall. That spends the saved attention on widening anchor coverage rather
+    than deepening it on concepts already well represented.
+    """
+    from collections import Counter
+    anchor_counts = Counter(r["anchor"] for r in rows)
+    best: dict[frozenset, dict] = {}
+    for r in rows:
+        key = frozenset((r["anchor"], r["closer"]))
+        incumbent = best.get(key)
+        if incumbent is None or anchor_counts[r["anchor"]] < anchor_counts[incumbent["anchor"]]:
+            best[key] = r
+    kept = [r for r in rows if best.get(frozenset((r["anchor"], r["closer"]))) is r]
+    return kept, len(rows) - len(kept)
+
+
 def apply_verdicts(rows: list[dict], src: Path) -> tuple[list[dict], dict[str, int]]:
     """Filter candidates through an independent verifier's judgements.
 
@@ -155,7 +185,7 @@ def validate_concepts(rows: list[dict], existing: set[str]) -> tuple[list[dict],
     return good, problems
 
 
-def stage() -> int:
+def stage(keep_reverse: bool = False) -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     lookup = build_concept_lookup()
     (OUT / "concepts.json").write_text(json.dumps(lookup), encoding="utf-8")
@@ -170,6 +200,11 @@ def stage() -> int:
         rows = read_jsonl(src)
         rows, verdicts = apply_verdicts(rows, src)
         if mode == "triplet":
+            if not keep_reverse:
+                rows, collapsed = collapse_reverse_pairs(rows)
+                if collapsed:
+                    print(f"  · collapsed {collapsed} reverse-direction rows "
+                          f"(same claim, different distractor) — pass --keep-reverse to review them")
             good, problems = validate_triplets(rows, known)
         else:
             good, problems = validate_concepts(rows, known)
@@ -247,8 +282,12 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--merge", metavar="FILE",
                     help="merge a reviewed export back into the data files")
+    ap.add_argument("--keep-reverse", action="store_true",
+                    help="also review triplets that restate an earlier pair in reverse")
     args = ap.parse_args()
-    return merge(Path(args.merge).expanduser()) if args.merge else stage()
+    if args.merge:
+        return merge(Path(args.merge).expanduser())
+    return stage(keep_reverse=args.keep_reverse)
 
 
 if __name__ == "__main__":
