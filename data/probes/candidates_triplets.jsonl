@@ -1,0 +1,199 @@
+// Cross-domain analogy triplets: anchor is structurally closer to `closer` than to `farther`.
+// `closer` is always in a different domain from `anchor`; `farther` is always in the SAME
+// domain as `anchor` and topically adjacent to it, so passing requires structural rather
+// than subject-level similarity. Notes name the shared mechanism, not a shared metaphor.
+{"anchor": "event-horizon", "closer": "incompleteness", "farther": "phase-transition", "note": "a limit that is structural and in principle, not a matter of insufficient effort"}
+{"anchor": "event-horizon", "closer": "qualia", "farther": "symmetry-breaking", "note": "what is inside cannot be reached from outside even in principle"}
+{"anchor": "incompleteness", "closer": "qualia", "farther": "gradient-descent", "note": "an in-principle gap that no additional work from outside ever closes"}
+{"anchor": "incompleteness", "closer": "event-horizon", "farther": "combinatorial-explosion", "note": "a boundary set by the structure itself rather than by the difficulty of the work"}
+{"anchor": "qualia", "closer": "event-horizon", "farther": "reductionism", "note": "the inside is unreachable in principle from any outside description"}
+{"anchor": "qualia", "closer": "untranslatability", "farther": "emergence", "note": "a distinction native to one system with no image in another, so conversion must lose it"}
+{"anchor": "untranslatability", "closer": "qualia", "farther": "phoneme", "note": "what one system marks natively has no equivalent in the other, so transfer costs loss"}
+{"anchor": "untranslatability", "closer": "incompleteness", "farther": "grammatical-case", "note": "the ceiling comes from the system's own expressive boundary, not from effort"}
+{"anchor": "symmetry-breaking", "closer": "precedent", "farther": "diffusion", "note": "an arbitrary first choice among equivalent options becomes binding on everything after"}
+{"anchor": "symmetry-breaking", "closer": "phoneme", "farther": "conservation-of-energy", "note": "a continuum with no natural joints is cut at an arbitrary place and the cut then governs"}
+{"anchor": "precedent", "closer": "symmetry-breaking", "farther": "jurisdiction", "note": "which option got picked was arbitrary; that it is now fixed is what does the work"}
+{"anchor": "phoneme", "closer": "symmetry-breaking", "farther": "semantic-drift", "note": "an indifferent continuum is divided arbitrarily and the division is thereafter binding"}
+{"anchor": "consensus-protocol", "closer": "symmetry-breaking", "farther": "load-balancing", "note": "parties settle on one option among equivalents and the choice locks in"}
+{"anchor": "ritual", "closer": "symmetry-breaking", "farther": "gift-economy", "note": "the specific form is arbitrary and its being fixed is exactly what carries the meaning"}
+{"anchor": "kinship-system", "closer": "phoneme", "farther": "gift-economy", "note": "a continuous substrate is carved into system-specific contrastive categories that then drive behaviour"}
+{"anchor": "kinship-system", "closer": "jurisdiction", "farther": "diaspora", "note": "which rule set applies is set by group membership, so the same relation gets different answers"}
+{"anchor": "caching", "closer": "precedent", "farther": "garbage-collection", "note": "a costly first resolution is stored and reused cheaply on matching later cases"}
+{"anchor": "immune-memory", "closer": "precedent", "farther": "homeostasis", "note": "a costly first response is retained and applied fast to anything matching the stored key"}
+{"anchor": "precedent", "closer": "immune-memory", "farther": "fiduciary-duty", "note": "the first hard case is decided once and answered from the store afterwards"}
+{"anchor": "precedent", "closer": "caching", "farther": "statute-of-limitations", "note": "past results are kept and reused instead of recomputed, and go stale when the world moves"}
+{"anchor": "homeostasis", "closer": "control-system", "farther": "apoptosis", "note": "measured error against a target drives opposing correction"}
+{"anchor": "homeostasis", "closer": "monetary-policy", "farther": "symbiosis", "note": "a controller steers a variable it cannot observe directly back toward a target"}
+{"anchor": "monetary-policy", "closer": "control-system", "farther": "comparative-advantage", "note": "one dial, delayed feedback, and overshoot from acting on stale readings"}
+{"anchor": "monetary-policy", "closer": "homeostasis", "farther": "network-effect", "note": "deviation from a target drives opposing correction across the whole system"}
+{"anchor": "control-system", "closer": "homeostasis", "farther": "redundancy", "note": "continuous correction from measured error holds an output near its set point"}
+{"anchor": "feedback-loop", "closer": "homeostasis", "farther": "reverse-engineering", "note": "output routed back as input, damped toward stability when the return path is negative"}
+{"anchor": "feedback-loop", "closer": "network-effect", "farther": "bottleneck", "note": "output routed back as input with a positive sign, so growth feeds more growth"}
+{"anchor": "circadian-rhythm", "closer": "resonance", "farther": "immune-memory", "note": "an internal natural period locks to external periodic driving when the two are close enough"}
+{"anchor": "resonance", "closer": "circadian-rhythm", "farther": "diffusion", "note": "driving matched to the system's own natural rate accumulates instead of cancelling"}
+{"anchor": "resonance", "closer": "control-system", "farther": "entropy", "note": "correction or forcing in phase with the response builds into runaway oscillation"}
+{"anchor": "natural-selection", "closer": "operant-conditioning", "farther": "photosynthesis", "note": "outcomes reshape the next round's behaviour with no model of why they occurred"}
+{"anchor": "natural-selection", "closer": "vernacular-architecture", "farther": "gene-expression", "note": "fit accumulates from undirected local trial with no designer anywhere"}
+{"anchor": "operant-conditioning", "closer": "natural-selection", "farther": "working-memory", "note": "consequences do the selecting, and the policy is shaped without understanding"}
+{"anchor": "operant-conditioning", "closer": "gradient-descent", "farther": "attachment", "note": "adjust in whatever direction the last feedback rewarded, using only local signal"}
+{"anchor": "gradient-descent", "closer": "operant-conditioning", "farther": "topology", "note": "a policy improved step by step from a reward signal, blind to the global picture"}
+{"anchor": "gradient-descent", "closer": "vernacular-architecture", "farther": "incompleteness", "note": "purely local improvement produces a tight fit that nobody could explain or transfer"}
+{"anchor": "gradient-descent", "closer": "desire-path", "farther": "duality", "note": "each step goes wherever is locally better, and the accumulated path is the result"}
+{"anchor": "vernacular-architecture", "closer": "natural-selection", "farther": "cantilever", "note": "variants are tried, the ill-fitted ones are dropped, and the survivors set the pattern"}
+{"anchor": "vernacular-architecture", "closer": "gradient-descent", "farther": "negative-space", "note": "local trial with no global view yields a tight but brittle optimum"}
+{"anchor": "desire-path", "closer": "gradient-descent", "farther": "cantilever", "note": "each traveller takes the locally cheapest step and the route emerges from the sum"}
+{"anchor": "desire-path", "closer": "natural-selection", "farther": "load-bearing-wall", "note": "routes that get used are reinforced and the rest fade, with nobody choosing"}
+{"anchor": "desire-path", "closer": "semantic-drift", "farther": "negative-space", "note": "an aggregate pattern nobody planned, laid down by many small independent choices"}
+{"anchor": "moral-hazard", "closer": "fiduciary-duty", "farther": "comparative-advantage", "note": "the party deciding is not the party exposed to the downside"}
+{"anchor": "moral-hazard", "closer": "planned-obsolescence", "farther": "inflation", "note": "whoever sets the risk or the lifetime does not bear its cost"}
+{"anchor": "principal-agent-problem", "closer": "fiduciary-duty", "farther": "inflation", "note": "a delegate with different incentives and better information than the delegator"}
+{"anchor": "fiduciary-duty", "closer": "principal-agent-problem", "farther": "statute-of-limitations", "note": "a structural patch imposed exactly where delegated incentives diverge"}
+{"anchor": "fiduciary-duty", "closer": "moral-hazard", "farther": "jurisdiction", "note": "an obligation added because the actor would otherwise not bear the consequence"}
+{"anchor": "planned-obsolescence", "closer": "principal-agent-problem", "farther": "fail-safe", "note": "the producer chooses the lifetime while the user carries the cost of it ending"}
+{"anchor": "tragedy-of-the-commons", "closer": "antibiotic-resistance", "farther": "monetary-policy", "note": "each individually reasonable use degrades a shared resource everyone depends on"}
+{"anchor": "tragedy-of-the-commons", "closer": "categorical-imperative", "farther": "comparative-advantage", "note": "a policy that destroys its own basis once everyone adopts it"}
+{"anchor": "categorical-imperative", "closer": "tragedy-of-the-commons", "farther": "qualia", "note": "universal adoption of the rule defeats the rule, which is the test"}
+{"anchor": "antibiotic-resistance", "closer": "tragedy-of-the-commons", "farther": "differential-diagnosis", "note": "individually rational use burns down a resource held in common"}
+{"anchor": "strict-liability", "closer": "operant-conditioning", "farther": "due-process", "note": "consequence attaches to the outcome alone, indifferent to any internal state"}
+{"anchor": "strict-liability", "closer": "moral-hazard", "farther": "precedent", "note": "the cost is placed on the party whose choices actually control the outcome"}
+{"anchor": "information-asymmetry", "closer": "sampling-bias", "farther": "inflation", "note": "who chooses to participate is correlated with the hidden quality, so the pool skews"}
+{"anchor": "hysteresis", "closer": "attachment", "farther": "diffusion", "note": "the configuration set under earlier conditions persists after those conditions change"}
+{"anchor": "hysteresis", "closer": "precedent", "farther": "conservation-of-energy", "note": "the current state depends on the path of past inputs, not only on present ones"}
+{"anchor": "attachment", "closer": "hysteresis", "farther": "working-memory", "note": "a template fixed by early inputs still determines the response long afterwards"}
+{"anchor": "attachment", "closer": "overfitting", "farther": "habituation", "note": "a model locked to one narrow early sample and then applied far outside it"}
+{"anchor": "learned-helplessness", "closer": "precedent", "farther": "working-memory", "note": "a verdict reached under past conditions keeps binding after the conditions lapse"}
+{"anchor": "technical-debt", "closer": "carrying-capacity", "farther": "garbage-collection", "note": "load taken above the sustainable level is possible now and paid for with interest later"}
+{"anchor": "working-memory", "closer": "bottleneck", "farther": "attachment", "note": "one low-capacity stage caps everything downstream of it"}
+{"anchor": "working-memory", "closer": "carrying-capacity", "farther": "operant-conditioning", "note": "a hard ceiling that no improvement elsewhere raises, with overload degrading the whole"}
+{"anchor": "bottleneck", "closer": "working-memory", "farther": "redundancy", "note": "a single narrow stage fixes throughput, so gains anywhere else yield nothing"}
+{"anchor": "solubility", "closer": "carrying-capacity", "farther": "catalysis", "note": "a hard ceiling on how much can be absorbed, past which additions separate out"}
+{"anchor": "carrying-capacity", "closer": "working-memory", "farther": "keystone-species", "note": "a fixed capacity limit above which the system degrades rather than stretches"}
+{"anchor": "photosynthesis", "closer": "bottleneck", "farther": "apoptosis", "note": "output is set by the single scarcest required input, not by total supply"}
+{"anchor": "compression", "closer": "phoneme", "farther": "caching", "note": "keep only the distinctions that change identity and throw away the rest"}
+{"anchor": "abstraction-layer", "closer": "modularity", "farther": "technical-debt", "note": "a standardised interface lets you use a part without its internals, and leaks are the failure"}
+{"anchor": "abstraction-layer", "closer": "perspective", "farther": "race-condition", "note": "a consistent simplified projection you reason on, valid until the dropped dimension matters"}
+{"anchor": "reductionism", "closer": "modularity", "farther": "qualia", "note": "decomposition into parts works only where the couplings at the joins are weak"}
+{"anchor": "perspective", "closer": "abstraction-layer", "farther": "pentimento", "note": "a systematic simplification of the full thing, useful because the rule is applied consistently"}
+{"anchor": "chiaroscuro", "closer": "compression", "farther": "pentimento", "note": "detail is deliberately discarded so the structure that matters reads immediately"}
+{"anchor": "chiaroscuro", "closer": "signal-to-noise-ratio", "farther": "pastiche", "note": "form is read from contrast against the background and nothing survives past the extremes"}
+{"anchor": "phoneme", "closer": "compression", "farther": "metaphor", "note": "a continuous signal is reduced to the minimal set of contrasts that carry identity"}
+{"anchor": "signal-to-noise-ratio", "closer": "habituation", "farther": "sampling-bias", "note": "a constant background carries no information, so only deviation from it is detectable"}
+{"anchor": "topology", "closer": "grammatical-case", "farther": "gradient-descent", "note": "the role or relation survives arbitrary rearrangement of position and measurement"}
+{"anchor": "topology", "closer": "diaspora", "farther": "combinatorial-explosion", "note": "connection is what persists; distance and position are discarded as irrelevant"}
+{"anchor": "metaphor", "closer": "isomorphism", "farther": "phoneme", "note": "relational structure is carried onto a different substrate so inferences transfer"}
+{"anchor": "isomorphism", "closer": "metaphor", "farther": "combinatorial-explosion", "note": "two unrelated-looking systems are the same relations in different clothing"}
+{"anchor": "isomorphism", "closer": "modulation", "farther": "gradient-descent", "note": "everything absolute is changed while every relation between the parts is preserved"}
+{"anchor": "modulation", "closer": "isomorphism", "farther": "timbre", "note": "the same relative structure is re-anchored on a different base, relations intact"}
+{"anchor": "modulation", "closer": "inflation", "farther": "leitmotif", "note": "the base shifts so every absolute value changes while relative structure holds"}
+{"anchor": "grammatical-case", "closer": "topology", "farther": "semantic-drift", "note": "the marked role survives reordering, so meaning is invariant under permutation"}
+{"anchor": "invariant", "closer": "conservation-of-energy", "farther": "recursion", "note": "a quantity that cannot change, used to rule transitions out before checking them"}
+{"anchor": "conservation-of-energy", "closer": "invariant", "farther": "diffusion", "note": "a fixed quantity constrains every account of what a process could possibly do"}
+{"anchor": "the-ship-of-theseus", "closer": "semantic-drift", "farther": "categorical-imperative", "note": "total turnover of content with no step at which identity visibly changed"}
+{"anchor": "the-ship-of-theseus", "closer": "modularity", "farther": "qualia", "note": "every part is swappable, which forces the question of where the identity of the whole sits"}
+{"anchor": "tolerance-stacking", "closer": "sorites-paradox", "farther": "redundancy", "note": "each increment is individually acceptable and the accumulation is not"}
+{"anchor": "tolerance-stacking", "closer": "semantic-drift", "farther": "bottleneck", "note": "many small local deviations accumulate into a total nobody sanctioned"}
+{"anchor": "sorites-paradox", "closer": "tolerance-stacking", "farther": "categorical-imperative", "note": "every step passes inspection and the assembled total fails"}
+{"anchor": "sorites-paradox", "closer": "semantic-drift", "farther": "social-contract", "note": "enough imperceptible changes reverse the verdict with no step to blame"}
+{"anchor": "semantic-drift", "closer": "tolerance-stacking", "farther": "phoneme", "note": "local adjustments each within tolerance add up to a whole that no longer matches"}
+{"anchor": "semantic-drift", "closer": "sorites-paradox", "farther": "grammatical-case", "note": "no step is large enough to notice, yet the endpoints are plainly different"}
+{"anchor": "semantic-drift", "closer": "diffusion", "farther": "metaphor", "note": "many uncoordinated local moves produce a reliable aggregate drift nobody directs"}
+{"anchor": "inflation", "closer": "semantic-drift", "farther": "liquidity", "note": "the unit of measure itself moves, so old records stop being comparable"}
+{"anchor": "sampling-bias", "closer": "confirmation-bias", "farther": "regression-to-the-mean", "note": "what gets observed is correlated with the conclusion, so more data entrenches it"}
+{"anchor": "confirmation-bias", "closer": "sampling-bias", "farther": "working-memory", "note": "evidence is filtered by the position held, so accumulation raises confidence not accuracy"}
+{"anchor": "confirmation-bias", "closer": "precedent", "farther": "habituation", "note": "an early commitment governs how every later case is read, entrenching the first error"}
+{"anchor": "regression-to-the-mean", "closer": "placebo-effect", "farther": "bayesian-inference", "note": "improvement that would have happened anyway is credited to the intervention"}
+{"anchor": "placebo-effect", "closer": "confounding-variable", "farther": "triage", "note": "an uncontrolled parallel cause inflates the apparent effect of the intervention"}
+{"anchor": "overfitting", "closer": "vernacular-architecture", "farther": "bayesian-inference", "note": "fitted so tightly to one set of conditions that it fails as soon as conditions move"}
+{"anchor": "emergence", "closer": "polyrhythm", "farther": "reductionism", "note": "the combination has a period or property that none of the parts contains"}
+{"anchor": "emergence", "closer": "creolisation", "farther": "teleology", "note": "interaction among many participants throws up structure nobody designed"}
+{"anchor": "emergence", "closer": "quantum-entanglement", "farther": "instrumental-convergence", "note": "the joint system has no description as independent parts"}
+{"anchor": "creolisation", "closer": "emergence", "farther": "untranslatability", "note": "full structure re-emerges spontaneously from interaction that nobody organised"}
+{"anchor": "creolisation", "closer": "ecological-succession", "farther": "phoneme", "note": "a bare initial stage is colonised and elaborated by the next occupants into a full system"}
+{"anchor": "polyrhythm", "closer": "emergence", "farther": "timbre", "note": "the coincidence of the parts produces a cycle none of them contains alone"}
+{"anchor": "polymerisation", "closer": "emergence", "farther": "solubility", "note": "identical small units link into a whole whose bulk properties none of the units has"}
+{"anchor": "quantum-entanglement", "closer": "emergence", "farther": "diffusion", "note": "the joint description cannot be factored into independent descriptions of the parts"}
+{"anchor": "quantum-entanglement", "closer": "confounding-variable", "farther": "event-horizon", "note": "correlated outcomes with nothing passing between them, fixed by a common origin"}
+{"anchor": "confounding-variable", "closer": "quantum-entanglement", "farther": "overfitting", "note": "two things move together because of a shared origin, not because either drives the other"}
+{"anchor": "redundancy", "closer": "oral-tradition", "farther": "bottleneck", "note": "the same content is carried in overlapping copies so losing one destroys nothing"}
+{"anchor": "oral-tradition", "closer": "redundancy", "farther": "taboo", "note": "structure and repetition are added deliberately so transmission survives errors"}
+{"anchor": "resilience", "closer": "redundancy", "farther": "niche-partitioning", "note": "function is preserved by holding spare capacity that costs efficiency in normal times"}
+{"anchor": "liquidity", "closer": "resilience", "farther": "inflation", "note": "slack that is invisible while unneeded and gone exactly when it is needed"}
+{"anchor": "burden-of-proof", "closer": "fail-safe", "farther": "precedent", "note": "what happens when nothing is established is fixed in advance and decides the case"}
+{"anchor": "burden-of-proof", "closer": "bayesian-inference", "farther": "jurisdiction", "note": "an asymmetric default holds until evidence is strong enough to move it"}
+{"anchor": "apoptosis", "closer": "garbage-collection", "farther": "metamorphosis", "note": "surplus or damaged components are identified and reclaimed so the whole is preserved"}
+{"anchor": "apoptosis", "closer": "planned-obsolescence", "farther": "natural-selection", "note": "component lifetime is bounded by an internal signal rather than by wear"}
+{"anchor": "garbage-collection", "closer": "apoptosis", "farther": "caching", "note": "components nothing still needs are removed automatically to recover capacity"}
+{"anchor": "garbage-collection", "closer": "statute-of-limitations", "farther": "compression", "note": "what nothing still refers to is released by rule rather than by resolution"}
+{"anchor": "statute-of-limitations", "closer": "garbage-collection", "farther": "due-process", "note": "claims nobody pursued are reclaimed on a clock so the system does not fill up"}
+{"anchor": "statute-of-limitations", "closer": "apoptosis", "farther": "jurisdiction", "note": "termination on a timer rather than on resolution, to keep the whole functioning"}
+{"anchor": "metamorphosis", "closer": "creative-destruction", "farther": "homeostasis", "note": "the dismantling and the rebuilding are the same event, not sequential ones"}
+{"anchor": "creative-destruction", "closer": "metamorphosis", "farther": "liquidity", "note": "the existing organisation is destroyed as the price of the new one, not before it"}
+{"anchor": "syncopation", "closer": "defamiliarisation", "farther": "timbre", "note": "the effect exists only because the regularity it breaks was firmly established first"}
+{"anchor": "defamiliarisation", "closer": "syncopation", "farther": "pastiche", "note": "the pattern is set up precisely so that breaking it is perceptible"}
+{"anchor": "defamiliarisation", "closer": "habituation", "farther": "chiaroscuro", "note": "a response worn away by repetition is restored by making the input strange again"}
+{"anchor": "dissonance", "closer": "cognitive-dissonance", "farther": "timbre", "note": "an incompatible pairing generates pressure whose release is what drives the next move"}
+{"anchor": "priming", "closer": "hysteresis", "farther": "working-memory", "note": "the response depends on the immediately preceding input, not only the current one"}
+{"anchor": "readymade", "closer": "pragmatics", "farther": "chiaroscuro", "note": "the object is unchanged and the frame it sits in does all the work of meaning"}
+{"anchor": "chirality", "closer": "pragmatics", "farther": "solubility", "note": "two items indistinguishable in isolation behave differently only against what they meet"}
+{"anchor": "pragmatics", "closer": "affordance", "farther": "phoneme", "note": "the receiver completes the message from setting and form rather than from stated content"}
+{"anchor": "code-switching", "closer": "jurisdiction", "farther": "semantic-drift", "note": "which whole system governs is selected by context, not by the content at hand"}
+{"anchor": "gene-expression", "closer": "code-switching", "farther": "photosynthesis", "note": "one stored repertoire, with context gating which part is actually expressed"}
+{"anchor": "theory-of-mind", "closer": "reverse-engineering", "farther": "working-memory", "note": "internal structure is inferred from external behaviour with no access to the design"}
+{"anchor": "reverse-engineering", "closer": "theory-of-mind", "farther": "redundancy", "note": "the hidden internal model is reconstructed from what the system does on the outside"}
+{"anchor": "reverse-engineering", "closer": "differential-diagnosis", "farther": "bottleneck", "note": "the unobserved cause is narrowed down from the observable output alone"}
+{"anchor": "teleology", "closer": "reverse-engineering", "farther": "sorites-paradox", "note": "function is read off the finished form, and intent is inferred that may never have existed"}
+{"anchor": "affordance", "closer": "teleology", "farther": "negative-space", "note": "purpose is read directly off form, and misleads when the form implies one that is absent"}
+{"anchor": "load-bearing-wall", "closer": "keystone-species", "farther": "negative-space", "note": "removal restructures everything, and surface inspection does not reveal which element it is"}
+{"anchor": "load-bearing-wall", "closer": "taboo", "farther": "modularity", "note": "a constraint that looks arbitrary but that the surrounding order actually rests on"}
+{"anchor": "keystone-species", "closer": "load-bearing-wall", "farther": "carrying-capacity", "note": "importance is out of all proportion to size and is only confirmed by removal"}
+{"anchor": "keystone-species", "closer": "phoneme", "farther": "ecological-succession", "note": "the one element whose substitution changes the identity of the whole"}
+{"anchor": "taboo", "closer": "load-bearing-wall", "farther": "gift-economy", "note": "violating it threatens the whole structure, not merely the rule itself"}
+{"anchor": "catalysis", "closer": "keystone-species", "farther": "solubility", "note": "a small persistent element that governs whether the larger process runs at all"}
+{"anchor": "horizontal-gene-transfer", "closer": "cultural-transmission", "farther": "natural-selection", "note": "a working component is copied sideways between contemporaries instead of inherited"}
+{"anchor": "horizontal-gene-transfer", "closer": "creolisation", "farther": "gene-expression", "note": "systems in contact swap working parts rather than deriving them from ancestry"}
+{"anchor": "cultural-transmission", "closer": "horizontal-gene-transfer", "farther": "taboo", "note": "traits move laterally between hosts, so change outruns the inherited channel"}
+{"anchor": "invasive-species", "closer": "jurisdiction", "farther": "niche-partitioning", "note": "crossing a boundary into a region where the constraints that limited it do not apply"}
+{"anchor": "diaspora", "closer": "version-control", "farther": "taboo", "note": "branches diverge locally while every one stays linked to the common ancestor"}
+{"anchor": "pastiche", "closer": "horizontal-gene-transfer", "farther": "chiaroscuro", "note": "novelty produced purely by recombining parts borrowed from elsewhere"}
+{"anchor": "counterpoint", "closer": "combinatorial-search", "farther": "timbre", "note": "difficulty scales with the number of constraints that must hold at once"}
+{"anchor": "combinatorial-search", "closer": "counterpoint", "farther": "caching", "note": "many simultaneous constraints must all be satisfied by one configuration"}
+{"anchor": "combinatorial-search", "closer": "differential-diagnosis", "farther": "load-balancing", "note": "candidates are enumerated and pruned by tests chosen to eliminate the most"}
+{"anchor": "differential-diagnosis", "closer": "combinatorial-search", "farther": "triage", "note": "the candidate set is narrowed by the most discriminating test, not by confirming a favourite"}
+{"anchor": "differential-diagnosis", "closer": "bayesian-inference", "farther": "placebo-effect", "note": "rival hypotheses are ranked by how much better each explains the new evidence"}
+{"anchor": "bayesian-inference", "closer": "differential-diagnosis", "farther": "sampling-bias", "note": "a candidate set is carried forward and reweighted by each discriminating observation"}
+{"anchor": "bayesian-inference", "closer": "epistemic-humility", "farther": "overfitting", "note": "confidence is held strictly in proportion to the evidence supporting it"}
+{"anchor": "epistemic-humility", "closer": "bayesian-inference", "farther": "categorical-imperative", "note": "belief is held at the strength the evidence licenses and no further"}
+{"anchor": "symbiosis", "closer": "comparative-advantage", "farther": "apoptosis", "note": "each side supplies what the other cannot, so both do better than alone"}
+{"anchor": "comparative-advantage", "closer": "symbiosis", "farther": "inflation", "note": "complementary deficits make specialising and exchanging beat self-sufficiency"}
+{"anchor": "comparative-advantage", "closer": "niche-partitioning", "farther": "moral-hazard", "note": "each takes the dimension where its relative disadvantage is smallest, so both persist"}
+{"anchor": "niche-partitioning", "closer": "comparative-advantage", "farther": "keystone-species", "note": "division along a dimension of difference replaces exclusion with coexistence"}
+{"anchor": "activation-energy", "closer": "due-process", "farther": "chirality", "note": "a mandatory cost must be paid before an otherwise favourable transition may begin"}
+{"anchor": "due-process", "closer": "activation-energy", "farther": "jurisdiction", "note": "a required intermediate stage sets the rate of the change without changing its outcome"}
+{"anchor": "due-process", "closer": "ritual", "farther": "strict-liability", "note": "legitimacy comes from the prescribed form having been followed, not from the result"}
+{"anchor": "ritual", "closer": "due-process", "farther": "diaspora", "note": "the exact sequence must be performed, and the performing is what confers the status"}
+{"anchor": "improvisation", "closer": "triage", "farther": "timbre", "note": "choice must be made immediately under a hard limit and cannot be revisited"}
+{"anchor": "triage", "closer": "improvisation", "farther": "placebo-effect", "note": "commitments are irreversible and made in real time from practised heuristics"}
+{"anchor": "triage", "closer": "opportunity-cost", "farther": "differential-diagnosis", "note": "serving one case is priced by the case that therefore goes unserved"}
+{"anchor": "improvisation", "closer": "gradient-descent", "farther": "leitmotif", "note": "every choice is committed at once from local information, with no backtracking"}
+{"anchor": "opportunity-cost", "closer": "negative-space", "farther": "liquidity", "note": "what was not chosen carries the meaning, and no inventory of what is there shows it"}
+{"anchor": "negative-space", "closer": "opportunity-cost", "farther": "cantilever", "note": "the unplaced region determines the reading, invisible to anyone counting content"}
+{"anchor": "iatrogenesis", "closer": "opportunity-cost", "farther": "triage", "note": "a real cost that standard accounting omits, so acting looks cheaper than it is"}
+{"anchor": "entropy", "closer": "combinatorial-explosion", "farther": "conservation-of-energy", "note": "the outcome is settled by the sheer count of configurations, not by any force"}
+{"anchor": "entropy", "closer": "compression", "farther": "resonance", "note": "how many fine states a coarse description covers is exactly what cannot be compressed away"}
+{"anchor": "phase-transition", "closer": "herd-immunity", "farther": "diffusion", "note": "bulk behaviour flips abruptly once a control parameter crosses a threshold"}
+{"anchor": "herd-immunity", "closer": "phase-transition", "farther": "triage", "note": "below the threshold nothing holds, above it the population-level behaviour changes state"}
+{"anchor": "critical-mass", "closer": "network-effect", "farther": "diffusion", "note": "past a threshold each event produces more than one successor and it runs away"}
+{"anchor": "critical-mass", "closer": "feedback-loop", "farther": "entropy", "note": "the replacement ratio crossing one turns the process self-sustaining"}
+{"anchor": "network-effect", "closer": "critical-mass", "farther": "opportunity-cost", "note": "below a threshold it dies out, above it growth feeds itself and becomes unassailable"}
+{"anchor": "network-effect", "closer": "herd-immunity", "farther": "inflation", "note": "each additional participant changes the payoff for everyone else in the population"}
+{"anchor": "chemical-equilibrium", "closer": "fixed-point", "farther": "polymerisation", "note": "opposing rates cancel, so the configuration reproduces itself and stops moving"}
+{"anchor": "fixed-point", "closer": "carrying-capacity", "farther": "incompleteness", "note": "the dynamics settle at the state that reproduces itself and stay there"}
+{"anchor": "idempotence", "closer": "habituation", "farther": "race-condition", "note": "after the first occurrence, further repetitions of the same input change nothing"}
+{"anchor": "habituation", "closer": "compression", "farther": "attachment", "note": "the predictable component is discarded and processing is spent only on what changed"}
+{"anchor": "version-control", "closer": "pentimento", "farther": "caching", "note": "earlier states remain recoverable underneath the revisions laid over them"}
+{"anchor": "pentimento", "closer": "version-control", "farther": "chiaroscuro", "note": "the revision history stays present in the artefact instead of being overwritten"}
+{"anchor": "wabi-sabi", "closer": "desire-path", "farther": "perspective", "note": "accumulated wear is read as information about use rather than as damage"}
+{"anchor": "qualia", "closer": "timbre", "farther": "emergence", "note": "identity lives in what the standard summary description throws away"}
+{"anchor": "timbre", "closer": "qualia", "farther": "syncopation", "note": "two things with the same nominal value differ in exactly what the headline measure omits"}
+{"anchor": "duality", "closer": "negative-space", "farther": "combinatorial-explosion", "note": "the complement carries the same content, so reading it answers the same question"}
+{"anchor": "instrumental-convergence", "closer": "liquidity", "farther": "teleology", "note": "a general-purpose convertible intermediate is worth acquiring whatever the final aim"}
