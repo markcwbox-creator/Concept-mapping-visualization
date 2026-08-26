@@ -23,3 +23,6 @@ data/build/layer_sweep.json
 data/build/space.json
 data/build/structure_vectors/
 data/build/structure_experiment.json
+
+# Generated staging area for the review tool (rebuild with scripts/stage_review.py)
+web/data/review/

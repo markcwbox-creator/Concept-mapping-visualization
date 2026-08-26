@@ -1,0 +1,253 @@
+// candidate concepts, batch 1 - proposed expansion of the seed set
+{"label": "allometry", "definition": "The way a body part's size changes at a different rate from the size of the whole organism.", "domain": "biology"}
+{"label": "canalisation", "definition": "The buffering of development so that a trait forms reliably despite genetic and environmental variation.", "domain": "biology"}
+{"label": "exaptation", "definition": "A trait shaped for one function that is later recruited to serve an unrelated one.", "domain": "biology"}
+{"label": "genetic drift", "definition": "Change in trait frequencies caused by random sampling rather than by any advantage.", "domain": "biology"}
+{"label": "pleiotropy", "definition": "When a single gene influences several apparently unrelated traits at once.", "domain": "biology"}
+{"label": "epistasis", "definition": "When the effect of one gene depends on which variants of other genes are present.", "domain": "biology"}
+{"label": "quorum sensing", "definition": "Cells detecting their own local density and switching behaviour once a threshold is crossed.", "domain": "biology"}
+{"label": "morphogen gradient", "definition": "A graded chemical signal whose local concentration tells each cell which structure to become.", "domain": "biology"}
+{"label": "phenotypic plasticity", "definition": "The capacity of one genotype to produce different forms depending on the conditions it develops in.", "domain": "biology"}
+{"label": "autophagy", "definition": "A cell digesting its own damaged components to recycle the materials under stress.", "domain": "biology"}
+{"label": "kin selection", "definition": "Behaviour costly to the individual spreading because it aids relatives carrying the same genes.", "domain": "biology"}
+{"label": "founder effect", "definition": "The narrowed variation of a population descended from a small number of original colonisers.", "domain": "biology"}
+{"label": "reproductive isolation", "definition": "Barriers that stop two populations interbreeding and let them diverge into separate lineages.", "domain": "biology"}
+{"label": "developmental constraint", "definition": "The way an existing body plan restricts which variants can be built at all.", "domain": "biology"}
+{"label": "renormalisation", "definition": "Absorbing the effects of unresolved small scales into redefined parameters at the scale observed.", "domain": "physics"}
+{"label": "mean free path", "definition": "The average distance a particle travels between successive collisions with its surroundings.", "domain": "physics"}
+{"label": "adiabatic invariance", "definition": "A quantity that stays nearly constant when a system's conditions change slowly enough.", "domain": "physics"}
+{"label": "impedance matching", "definition": "Tuning two coupled systems so energy transfers between them instead of reflecting back.", "domain": "physics"}
+{"label": "metastability", "definition": "A state that persists as though stable until a large enough disturbance tips it to a lower one.", "domain": "physics"}
+{"label": "ergodicity", "definition": "When a system's long time average over one trajectory equals the average over all its states.", "domain": "physics"}
+{"label": "decoherence", "definition": "The loss of interference between quantum alternatives as a system becomes correlated with its environment.", "domain": "physics"}
+{"label": "self organised criticality", "definition": "The tendency of some driven systems to settle at a threshold where events of all sizes occur.", "domain": "physics"}
+{"label": "geometric frustration", "definition": "When the arrangement of a lattice makes it impossible to satisfy every local interaction at once.", "domain": "physics"}
+{"label": "universality class", "definition": "A group of unlike systems sharing identical behaviour near a critical point regardless of their details.", "domain": "physics"}
+{"label": "dimensional analysis", "definition": "Deducing the possible form of a relationship from the units its quantities must combine into.", "domain": "physics"}
+{"label": "conjugate variables", "definition": "A pair of quantities linked so that constraining one necessarily loosens knowledge of the other.", "domain": "physics"}
+{"label": "gauge freedom", "definition": "Redundancy in a description that can be altered without changing any observable prediction.", "domain": "physics"}
+{"label": "degeneracy", "definition": "When several distinct configurations of a system share exactly the same energy or outcome.", "domain": "physics"}
+{"label": "buffering", "definition": "A mixture that resists change in a property by consuming whatever is added in either direction.", "domain": "chemistry"}
+{"label": "autocatalysis", "definition": "A reaction whose own product speeds it up, so it accelerates once it begins.", "domain": "chemistry"}
+{"label": "steric hindrance", "definition": "The blocking of a reaction by the physical bulk of groups surrounding the reactive site.", "domain": "chemistry"}
+{"label": "reaction intermediate", "definition": "A short lived species formed and consumed along the path between reactants and products.", "domain": "chemistry"}
+{"label": "nucleation", "definition": "The formation of a small initial cluster that must appear before a new phase can grow.", "domain": "chemistry"}
+{"label": "self assembly", "definition": "Components spontaneously arranging into an ordered structure through local interactions alone.", "domain": "chemistry"}
+{"label": "protecting group", "definition": "A temporary attachment that masks one reactive site while another is worked on, then is removed.", "domain": "chemistry"}
+{"label": "supersaturation", "definition": "Holding more dissolved material than equilibrium allows, poised to precipitate once a seed appears.", "domain": "chemistry"}
+{"label": "passivation", "definition": "A thin surface layer formed by initial corrosion that protects the material beneath from further attack.", "domain": "chemistry"}
+{"label": "chromatographic separation", "definition": "Sorting a mixture by how strongly each component sticks while carried past a stationary material.", "domain": "chemistry"}
+{"label": "electronegativity", "definition": "The tendency of an atom to pull shared electrons towards itself within a bond.", "domain": "chemistry"}
+{"label": "oxidation state", "definition": "A bookkeeping charge assigned to an atom to track where electrons have moved during reaction.", "domain": "chemistry"}
+{"label": "colligative property", "definition": "A property that depends only on how many dissolved particles are present, not what they are.", "domain": "chemistry"}
+{"label": "stoichiometry", "definition": "The fixed numerical ratios in which substances must combine, setting which one runs out first.", "domain": "chemistry"}
+{"label": "pigeonhole principle", "definition": "If more items than containers are distributed, some container must hold more than one.", "domain": "mathematics"}
+{"label": "mathematical induction", "definition": "Proving a statement for all cases by proving a first case and that each implies the next.", "domain": "mathematics"}
+{"label": "diagonal argument", "definition": "Constructing an object that differs from every item in a list, showing no list can be complete.", "domain": "mathematics"}
+{"label": "universal property", "definition": "Defining an object by the unique way everything else maps to it rather than by its construction.", "domain": "mathematics"}
+{"label": "group action", "definition": "A way a set of symmetries operates on a structure, revealing what the structure preserves.", "domain": "mathematics"}
+{"label": "quotient structure", "definition": "A new object built by treating equivalent elements of an old one as identical.", "domain": "mathematics"}
+{"label": "convolution", "definition": "Combining two functions by sliding one across the other and accumulating the overlap.", "domain": "mathematics"}
+{"label": "orthogonality", "definition": "When components are independent enough that adjusting one leaves the others unaffected.", "domain": "mathematics"}
+{"label": "linearisation", "definition": "Approximating a curved relationship by a straight one valid in a small neighbourhood.", "domain": "mathematics"}
+{"label": "ill conditioning", "definition": "When tiny changes in a problem's inputs produce disproportionately large changes in its answer.", "domain": "mathematics"}
+{"label": "generating function", "definition": "Encoding an entire sequence as the coefficients of a single function to manipulate it wholesale.", "domain": "mathematics"}
+{"label": "measure zero", "definition": "A set so sparse that it contributes nothing to size, though it may still contain infinitely many points.", "domain": "mathematics"}
+{"label": "compactness", "definition": "The property that lets infinite situations be reduced to finitely many cases without loss.", "domain": "mathematics"}
+{"label": "sparsity", "definition": "When most entries of a structure are zero, allowing far cheaper storage and computation.", "domain": "mathematics"}
+{"label": "statistical power", "definition": "The chance a study will detect an effect of a given size if that effect is real.", "domain": "statistics"}
+{"label": "multiple comparisons", "definition": "The inflation of false positives that follows from testing many hypotheses on the same data.", "domain": "statistics"}
+{"label": "bootstrapping", "definition": "Estimating uncertainty by repeatedly resampling the observed data as a stand in for the population.", "domain": "statistics"}
+{"label": "censoring", "definition": "When an observation is known only to lie beyond a limit because measurement stopped.", "domain": "statistics"}
+{"label": "heteroscedasticity", "definition": "When the spread of errors varies across the range, breaking assumptions of constant noise.", "domain": "statistics"}
+{"label": "collider bias", "definition": "A spurious association created by conditioning on a variable that both causes influence.", "domain": "statistics"}
+{"label": "instrumental variable", "definition": "A factor that shifts the supposed cause without otherwise touching the outcome, isolating its effect.", "domain": "statistics"}
+{"label": "regularisation", "definition": "Penalising complexity in a fitted model so it generalises rather than chasing every fluctuation.", "domain": "statistics"}
+{"label": "cross validation", "definition": "Repeatedly holding out part of the data to estimate how a model performs on unseen cases.", "domain": "statistics"}
+{"label": "degrees of freedom", "definition": "The number of values in a calculation still free to vary once constraints are imposed.", "domain": "statistics"}
+{"label": "shrinkage", "definition": "Pulling noisy individual estimates towards a common value to reduce their overall error.", "domain": "statistics"}
+{"label": "stationarity", "definition": "When a process's statistical behaviour does not change with the point in time it is observed.", "domain": "statistics"}
+{"label": "autocorrelation", "definition": "The extent to which a sequence's values are predictable from earlier values of itself.", "domain": "statistics"}
+{"label": "imputation", "definition": "Filling in missing observations with plausible values so an analysis can use the whole dataset.", "domain": "statistics"}
+{"label": "backpressure", "definition": "A downstream component signalling upstream to slow down so queues do not grow without bound.", "domain": "computing"}
+{"label": "eventual consistency", "definition": "Allowing copies to disagree temporarily on the promise that they converge once updates stop.", "domain": "computing"}
+{"label": "exponential backoff", "definition": "Waiting progressively longer between retries so that many failing clients stop colliding.", "domain": "computing"}
+{"label": "deadlock", "definition": "A standstill where each participant holds a resource the others need and none will release.", "domain": "computing"}
+{"label": "thrashing", "definition": "When a system spends most of its effort on overhead of switching rather than on useful work.", "domain": "computing"}
+{"label": "sharding", "definition": "Splitting a dataset across independent partitions so each holds only part of the whole.", "domain": "computing"}
+{"label": "write ahead log", "definition": "Recording an intended change durably before applying it, so an interrupted operation can be replayed.", "domain": "computing"}
+{"label": "leaky abstraction", "definition": "When the details an interface promised to hide surface anyway and must be reasoned about.", "domain": "computing"}
+{"label": "amortised analysis", "definition": "Averaging the cost of an operation over a sequence, so rare expensive steps are paid for gradually.", "domain": "computing"}
+{"label": "referential transparency", "definition": "When an expression can be replaced by its value anywhere without changing behaviour.", "domain": "computing"}
+{"label": "canary release", "definition": "Exposing a change to a small fraction of traffic first so failures are caught before full rollout.", "domain": "computing"}
+{"label": "sandboxing", "definition": "Running untrusted code inside restricted boundaries so its faults cannot reach the wider system.", "domain": "computing"}
+{"label": "content addressing", "definition": "Naming data by a fingerprint of the data itself rather than by where it is stored.", "domain": "computing"}
+{"label": "priority inversion", "definition": "When a low priority task holding a resource blocks a high priority one that needs it.", "domain": "computing"}
+{"label": "rent seeking", "definition": "Spending resources to capture a larger share of existing wealth rather than to create new wealth.", "domain": "economics"}
+{"label": "hold up problem", "definition": "Underinvestment that occurs when one party fears the other will renegotiate after the investment is sunk.", "domain": "economics"}
+{"label": "adverse selection", "definition": "When the terms of an offer attract exactly the participants who are worst for the offerer.", "domain": "economics"}
+{"label": "price elasticity", "definition": "How sharply the quantity people want changes when the price of something moves.", "domain": "economics"}
+{"label": "deadweight loss", "definition": "Value destroyed when a distortion prevents trades that both parties would have wanted.", "domain": "economics"}
+{"label": "signalling", "definition": "Incurring a cost that is only bearable if one truly has the quality one claims.", "domain": "economics"}
+{"label": "transaction cost", "definition": "The overhead of finding, negotiating and enforcing an exchange, apart from the price itself.", "domain": "economics"}
+{"label": "bullwhip effect", "definition": "The amplification of small demand fluctuations into large swings further up a supply chain.", "domain": "economics"}
+{"label": "time inconsistency", "definition": "When a plan that was optimal to announce becomes tempting to abandon once the moment arrives.", "domain": "economics"}
+{"label": "arbitrage", "definition": "Exploiting a price difference between markets for the same thing until the difference closes.", "domain": "economics"}
+{"label": "externality", "definition": "A cost or benefit falling on someone who was not party to the decision that produced it.", "domain": "economics"}
+{"label": "discounting", "definition": "Valuing a future outcome less than the same outcome received now.", "domain": "economics"}
+{"label": "natural monopoly", "definition": "When one supplier serves a market more cheaply than several could because of fixed costs.", "domain": "economics"}
+{"label": "coordination failure", "definition": "When everyone would prefer a different arrangement but no one can move to it alone.", "domain": "economics"}
+{"label": "functional fixedness", "definition": "Being unable to see an object used in a new way because of its familiar purpose.", "domain": "psychology"}
+{"label": "curse of knowledge", "definition": "Being unable to model what it is like not to know something one already knows.", "domain": "psychology"}
+{"label": "spacing effect", "definition": "Better long term retention when study is distributed over time rather than massed together.", "domain": "psychology"}
+{"label": "chunking", "definition": "Grouping items into larger meaningful units so more can be held and handled at once.", "domain": "psychology"}
+{"label": "cognitive load", "definition": "The amount of mental effort a task imposes relative to what can be processed at once.", "domain": "psychology"}
+{"label": "hedonic adaptation", "definition": "The return of wellbeing towards a baseline after a change in circumstances.", "domain": "psychology"}
+{"label": "extinction burst", "definition": "A temporary intensification of a behaviour just after its reward is withdrawn.", "domain": "psychology"}
+{"label": "reactance", "definition": "The motivation to reassert a freedom by doing precisely what one has been pressed not to do.", "domain": "psychology"}
+{"label": "self efficacy", "definition": "One's belief in the capacity to carry out the actions a situation requires.", "domain": "psychology"}
+{"label": "zone of proximal development", "definition": "The band of tasks someone cannot yet do alone but can do with support.", "domain": "psychology"}
+{"label": "proactive interference", "definition": "When earlier learning obstructs the recall of something learned more recently.", "domain": "psychology"}
+{"label": "inattentional blindness", "definition": "Failing to notice a plainly visible event because attention was engaged elsewhere.", "domain": "psychology"}
+{"label": "diffusion of responsibility", "definition": "The weakening of any individual's sense of obligation as the number of bystanders grows.", "domain": "psychology"}
+{"label": "automaticity", "definition": "When practice makes a skill run without conscious control, freeing attention but resisting revision.", "domain": "psychology"}
+{"label": "underdetermination", "definition": "When the available evidence is compatible with more than one incompatible theory.", "domain": "philosophy"}
+{"label": "supervenience", "definition": "When facts of one kind cannot differ without some difference in the facts they depend on.", "domain": "philosophy"}
+{"label": "is ought gap", "definition": "The problem that no set of purely descriptive premises entails a prescriptive conclusion.", "domain": "philosophy"}
+{"label": "reflective equilibrium", "definition": "Adjusting principles and particular judgements against each other until they cohere.", "domain": "philosophy"}
+{"label": "moral luck", "definition": "Judging someone for outcomes that depended on factors entirely beyond their control.", "domain": "philosophy"}
+{"label": "infinite regress", "definition": "An explanation that requires a further explanation of the same kind, without end.", "domain": "philosophy"}
+{"label": "category error", "definition": "Applying a predicate to something of the wrong type for that predicate to apply at all.", "domain": "philosophy"}
+{"label": "hermeneutic circle", "definition": "Understanding a whole through its parts while the parts are only intelligible through the whole.", "domain": "philosophy"}
+{"label": "family resemblance", "definition": "A category whose members share overlapping similarities without any single feature common to all.", "domain": "philosophy"}
+{"label": "incommensurability", "definition": "When two frameworks lack a shared standard by which their claims could be compared.", "domain": "philosophy"}
+{"label": "dialectic", "definition": "Advancing understanding by driving a position against its opposition towards a resolution of both.", "domain": "philosophy"}
+{"label": "akrasia", "definition": "Acting against one's own settled judgement about what is best to do.", "domain": "philosophy"}
+{"label": "parsimony", "definition": "Preferring the explanation that posits the fewest entities or assumptions among those that fit.", "domain": "philosophy"}
+{"label": "tacit knowledge", "definition": "Competence one possesses and uses without being able to state the rules behind it.", "domain": "philosophy"}
+{"label": "markedness", "definition": "When one member of a pair is the default and the other carries extra form and meaning.", "domain": "linguistics"}
+{"label": "deixis", "definition": "Expressions whose reference is fixed only by who is speaking, when and where.", "domain": "linguistics"}
+{"label": "grammaticalisation", "definition": "The drift of an independent word into a grammatical marker with weakened meaning.", "domain": "linguistics"}
+{"label": "suppletion", "definition": "When an irregular form of a word comes from an entirely different root than its relatives.", "domain": "linguistics"}
+{"label": "phonotactics", "definition": "The constraints a language places on which sound sequences may occur in a syllable.", "domain": "linguistics"}
+{"label": "presupposition", "definition": "Content an utterance takes for granted rather than asserts, and which survives denial.", "domain": "linguistics"}
+{"label": "isogloss", "definition": "A boundary line on a map separating areas that use different variants of a feature.", "domain": "linguistics"}
+{"label": "analogical levelling", "definition": "The reshaping of irregular forms to match a dominant regular pattern in the system.", "domain": "linguistics"}
+{"label": "chain shift", "definition": "A series of changes in which each element moves into the space vacated by another.", "domain": "linguistics"}
+{"label": "garden path sentence", "definition": "A sentence whose early words invite a parse that later words force the hearer to abandon.", "domain": "linguistics"}
+{"label": "calque", "definition": "A phrase borrowed by translating its parts rather than importing its sounds.", "domain": "linguistics"}
+{"label": "evidentiality", "definition": "Grammatical marking of how the speaker came to know what they are asserting.", "domain": "linguistics"}
+{"label": "reduplication", "definition": "Repeating part or all of a word to signal intensity, plurality or repetition.", "domain": "linguistics"}
+{"label": "linguistic relativity", "definition": "The claim that the categories a language provides shape how its speakers perceive and reason.", "domain": "linguistics"}
+{"label": "ostinato", "definition": "A short figure repeated persistently beneath changing material above it.", "domain": "music"}
+{"label": "cadence", "definition": "A closing formula whose harmonic motion signals how completely a phrase has ended.", "domain": "music"}
+{"label": "voice leading", "definition": "Moving each independent line by the smallest steps that keep the combined harmony coherent.", "domain": "music"}
+{"label": "pedal point", "definition": "A sustained note held while harmonies above it change and clash against it.", "domain": "music"}
+{"label": "call and response", "definition": "A phrase from one performer answered by a contrasting phrase from another.", "domain": "music"}
+{"label": "motivic development", "definition": "Growing an extended structure by transforming one small idea rather than adding new ones.", "domain": "music"}
+{"label": "rubato", "definition": "Stretching and compressing timing expressively while the underlying pulse remains implied.", "domain": "music"}
+{"label": "drone", "definition": "A continuous unchanging pitch that fixes a reference against which everything else is heard.", "domain": "music"}
+{"label": "equal temperament", "definition": "Distributing tuning error evenly across all keys so none is pure but all are usable.", "domain": "music"}
+{"label": "harmonic series", "definition": "The ladder of frequencies above a fundamental that gives a sound its internal structure.", "domain": "music"}
+{"label": "theme and variations", "definition": "Restating one idea in successively altered guises while keeping its identity recognisable.", "domain": "music"}
+{"label": "inversion", "definition": "Turning a musical shape upside down so each rising interval becomes a falling one.", "domain": "music"}
+{"label": "ornamentation", "definition": "Small added figures that decorate a line without altering its underlying skeleton.", "domain": "music"}
+{"label": "microtiming", "definition": "Small deliberate deviations from an exact grid that give a rhythm its characteristic feel.", "domain": "music"}
+{"label": "factor of safety", "definition": "The margin by which a design's capacity exceeds the worst load it is expected to meet.", "domain": "engineering"}
+{"label": "derating", "definition": "Operating a component below its rated limit to extend its life and absorb unexpected stress.", "domain": "engineering"}
+{"label": "metal fatigue", "definition": "Cracking that develops from many cycles of loading well below the strength of the material.", "domain": "engineering"}
+{"label": "creep", "definition": "Slow permanent deformation under a constant load sustained over a long period.", "domain": "engineering"}
+{"label": "stress concentration", "definition": "The multiplication of local stress at a notch or corner where the flow of force is forced to turn.", "domain": "engineering"}
+{"label": "backlash", "definition": "The dead zone in a linkage where input moves without producing any output motion.", "domain": "engineering"}
+{"label": "burn in", "definition": "Running new units hard early so that units with latent defects fail before delivery.", "domain": "engineering"}
+{"label": "calibration drift", "definition": "The slow departure of an instrument's readings from truth as its reference degrades.", "domain": "engineering"}
+{"label": "root cause analysis", "definition": "Tracing a failure back past its symptoms to the condition whose removal prevents recurrence.", "domain": "engineering"}
+{"label": "preventive maintenance", "definition": "Replacing or servicing parts on a schedule rather than waiting for them to fail.", "domain": "engineering"}
+{"label": "failure mode analysis", "definition": "Enumerating the ways a design can fail and ranking them by likelihood and consequence.", "domain": "engineering"}
+{"label": "damping", "definition": "Removing energy from an oscillation so that disturbances die away instead of building.", "domain": "engineering"}
+{"label": "vibration isolation", "definition": "Decoupling a component from its surroundings so motion in one does not transmit to the other.", "domain": "engineering"}
+{"label": "interlock", "definition": "A constraint that makes an unsafe combination of states physically impossible to select.", "domain": "engineering"}
+{"label": "circulation", "definition": "The pattern of movement a building organises through its spaces.", "domain": "architecture"}
+{"label": "wayfinding", "definition": "The cues a place provides so people can build a mental map and know where they are.", "domain": "architecture"}
+{"label": "adaptive reuse", "definition": "Fitting a new purpose into an existing structure rather than demolishing and rebuilding.", "domain": "architecture"}
+{"label": "defensible space", "definition": "Arranging a place so residents naturally oversee it and informal control follows.", "domain": "architecture"}
+{"label": "thermal mass", "definition": "Heavy material that absorbs heat by day and releases it later, flattening temperature swings.", "domain": "architecture"}
+{"label": "daylighting", "definition": "Shaping openings and depth so natural light reaches interiors without glare or heat gain.", "domain": "architecture"}
+{"label": "human scale", "definition": "Proportioning elements to the size and reach of the body so a space feels inhabitable.", "domain": "architecture"}
+{"label": "enfilade", "definition": "A run of rooms whose aligned doorways create a long view straight through the sequence.", "domain": "architecture"}
+{"label": "structural bay", "definition": "The repeating unit between supports that sets the rhythm and limits of a plan.", "domain": "architecture"}
+{"label": "setback", "definition": "A required distance between a building and its boundary that shapes bulk and street form.", "domain": "architecture"}
+{"label": "form follows function", "definition": "The principle that a thing's shape should be derived from the purpose it serves.", "domain": "architecture"}
+{"label": "servant space", "definition": "Secondary zones holding services and circulation so the principal rooms stay uncluttered.", "domain": "architecture"}
+{"label": "massing", "definition": "The composition of a building's overall volumes before any detail is considered.", "domain": "architecture"}
+{"label": "passive ventilation", "definition": "Using pressure and temperature differences to move air through a building without machinery.", "domain": "architecture"}
+{"label": "mens rea", "definition": "The mental state a person must have held for their conduct to count as an offence.", "domain": "law"}
+{"label": "estoppel", "definition": "Barring someone from asserting a position that contradicts one others have relied upon.", "domain": "law"}
+{"label": "legal standing", "definition": "The requirement that a party show a concrete stake before a court will hear their claim.", "domain": "law"}
+{"label": "severability", "definition": "The rule that an invalid provision can be struck out while the rest of an instrument survives.", "domain": "law"}
+{"label": "proportionality", "definition": "The requirement that a measure's burden be no greater than its legitimate aim demands.", "domain": "law"}
+{"label": "chilling effect", "definition": "The suppression of permitted conduct by uncertainty about where a prohibition actually stops.", "domain": "law"}
+{"label": "safe harbour", "definition": "A specified course of conduct guaranteed to satisfy a vaguer general obligation.", "domain": "law"}
+{"label": "force majeure", "definition": "A clause excusing performance when an extraordinary event outside anyone's control prevents it.", "domain": "law"}
+{"label": "double jeopardy", "definition": "The bar on trying someone a second time for the matter already finally decided.", "domain": "law"}
+{"label": "subsidiarity", "definition": "The principle that decisions be taken at the most local level competent to take them.", "domain": "law"}
+{"label": "mootness", "definition": "When events have resolved a dispute so that no live controversy remains to decide.", "domain": "law"}
+{"label": "unconscionability", "definition": "Refusing to enforce a bargain whose terms and formation were grossly one sided.", "domain": "law"}
+{"label": "piercing the corporate veil", "definition": "Setting aside a legal entity's separateness to reach the people who controlled it.", "domain": "law"}
+{"label": "injunction", "definition": "An order requiring someone to act or refrain, rather than to pay for harm already done.", "domain": "law"}
+{"label": "therapeutic window", "definition": "The gap between the dose that helps and the dose that harms.", "domain": "medicine"}
+{"label": "number needed to treat", "definition": "How many patients must receive an intervention for one of them to benefit.", "domain": "medicine"}
+{"label": "referred pain", "definition": "Pain perceived at a site distant from the organ actually generating it.", "domain": "medicine"}
+{"label": "prodrome", "definition": "The vague early phase of an illness before its characteristic signs appear.", "domain": "medicine"}
+{"label": "comorbidity", "definition": "The presence of additional conditions that interact with and complicate the primary one.", "domain": "medicine"}
+{"label": "rebound effect", "definition": "The return of a symptom more strongly than before once a suppressing treatment stops.", "domain": "medicine"}
+{"label": "lead time bias", "definition": "Apparent survival gains that come only from detecting a disease earlier, not from living longer.", "domain": "medicine"}
+{"label": "overdiagnosis", "definition": "Detecting conditions that would never have caused symptoms, then treating them anyway.", "domain": "medicine"}
+{"label": "contraindication", "definition": "A circumstance under which an otherwise reasonable intervention should not be given.", "domain": "medicine"}
+{"label": "prophylaxis", "definition": "Acting before any sign of disease to prevent it rather than to treat it.", "domain": "medicine"}
+{"label": "palliation", "definition": "Relieving the burden of a condition without attempting to alter its underlying course.", "domain": "medicine"}
+{"label": "dose response curve", "definition": "The relationship between how much of an agent is given and how strong the effect is.", "domain": "medicine"}
+{"label": "watchful waiting", "definition": "Deliberately withholding intervention while monitoring, because acting may cause more harm.", "domain": "medicine"}
+{"label": "diagnostic momentum", "definition": "A provisional label sticking and hardening as it is passed along, crowding out other explanations.", "domain": "medicine"}
+{"label": "edge effect", "definition": "The distinct conditions and species found where two habitat types meet.", "domain": "ecology"}
+{"label": "ecotone", "definition": "A transitional zone between communities where members of both overlap.", "domain": "ecology"}
+{"label": "metapopulation", "definition": "A set of local populations linked by occasional dispersal, persisting though each may wink out.", "domain": "ecology"}
+{"label": "source sink dynamics", "definition": "Productive patches continually resupplying patches where deaths exceed births.", "domain": "ecology"}
+{"label": "bioaccumulation", "definition": "The concentration of a persistent substance increasing at each step up a food chain.", "domain": "ecology"}
+{"label": "nutrient cycling", "definition": "The repeated passage of an element through organisms and back into the environment.", "domain": "ecology"}
+{"label": "disturbance regime", "definition": "The characteristic frequency and severity of upheaval that a community is adapted to.", "domain": "ecology"}
+{"label": "habitat fragmentation", "definition": "The breaking of continuous habitat into isolated pieces too small to support their former occupants.", "domain": "ecology"}
+{"label": "extinction debt", "definition": "Losses already made inevitable by past damage but not yet realised in the count of species.", "domain": "ecology"}
+{"label": "ecosystem engineer", "definition": "An organism that physically alters its habitat and thereby determines what else can live there.", "domain": "ecology"}
+{"label": "island biogeography", "definition": "How the number of species a patch holds follows from its size and its isolation.", "domain": "ecology"}
+{"label": "predator satiation", "definition": "Reproducing in synchronised gluts so consumers are overwhelmed and a fraction of offspring survives untouched.", "domain": "ecology"}
+{"label": "alternative stable states", "definition": "When the same conditions can support two very different configurations, each resisting change.", "domain": "ecology"}
+{"label": "phenological mismatch", "definition": "When interacting species shift their seasonal timing at different rates and fall out of step.", "domain": "ecology"}
+{"label": "contrapposto", "definition": "Standing weight shifted onto one leg so the body's axes counterbalance and the figure reads as alive.", "domain": "art"}
+{"label": "sfumato", "definition": "Blurring edges into imperceptible gradations so forms emerge without any drawn boundary.", "domain": "art"}
+{"label": "impasto", "definition": "Paint laid thickly enough that its own texture and shadow become part of the image.", "domain": "art"}
+{"label": "underpainting", "definition": "A preparatory tonal layer that establishes structure before colour is laid over it.", "domain": "art"}
+{"label": "colour temperature", "definition": "The warm or cool bias of a hue, used to push elements forward or send them back.", "domain": "art"}
+{"label": "complementary contrast", "definition": "Placing opposing hues together so each intensifies the other's apparent saturation.", "domain": "art"}
+{"label": "picture plane", "definition": "The imagined flat surface through which a depicted scene is seen, against which depth is measured.", "domain": "art"}
+{"label": "palimpsest", "definition": "A surface bearing traces of what was scraped away, so old and new are read together.", "domain": "art"}
+{"label": "trompe l oeil", "definition": "Rendering so exact that it is briefly taken for the real object rather than a depiction.", "domain": "art"}
+{"label": "horror vacui", "definition": "Filling every part of a surface, leaving no area unworked or at rest.", "domain": "art"}
+{"label": "iconography", "definition": "The conventional signs by which a depicted figure is identified and its meaning read.", "domain": "art"}
+{"label": "ekphrasis", "definition": "Describing a work in one medium so vividly in another that it is reconstructed in the mind.", "domain": "art"}
+{"label": "montage", "definition": "Setting separate fragments side by side so their collision produces a meaning neither holds.", "domain": "art"}
+{"label": "figure ground reversal", "definition": "An image that can be read two ways depending on which region is taken as background.", "domain": "art"}
+{"label": "syncretism", "definition": "The blending of elements from separate traditions into a coherent new practice.", "domain": "anthropology"}
+{"label": "bricolage", "definition": "Making what is needed from whatever materials and forms happen to be at hand.", "domain": "anthropology"}
+{"label": "structural violence", "definition": "Harm inflicted not by any actor but by the ordinary arrangement of institutions.", "domain": "anthropology"}
+{"label": "emic and etic perspectives", "definition": "The contrast between describing a practice in participants' terms and in an observer's.", "domain": "anthropology"}
+{"label": "habitus", "definition": "Durable dispositions laid down by upbringing that generate behaviour without deliberate choice.", "domain": "anthropology"}
+{"label": "cultural capital", "definition": "Tastes and competences that convert into advantage because institutions recognise them.", "domain": "anthropology"}
+{"label": "commensality", "definition": "Eating together as the act that makes and marks who belongs to a group.", "domain": "anthropology"}
+{"label": "fictive kinship", "definition": "Treating unrelated people as relatives, importing the obligations that come with the role.", "domain": "anthropology"}
+{"label": "moral economy", "definition": "Shared expectations of fairness that constrain what economic behaviour a community will tolerate.", "domain": "anthropology"}
+{"label": "cargo cult", "definition": "Reproducing the visible forms of a practice while lacking the mechanism that made it work.", "domain": "anthropology"}
+{"label": "ethnocentrism", "definition": "Judging another way of life by the standards of one's own, taken as the default.", "domain": "anthropology"}
+{"label": "legitimate peripheral participation", "definition": "Learning a practice by doing its low stakes parts at the edge of a community.", "domain": "anthropology"}
+{"label": "totemism", "definition": "Using a class of natural things to mark and think through the divisions of a society.", "domain": "anthropology"}
+{"label": "prestige competition", "definition": "Rivalry conducted through conspicuous giving or display rather than through force.", "domain": "anthropology"}

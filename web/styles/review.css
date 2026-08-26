@@ -1,0 +1,133 @@
+/* =============================================================================
+   Review tool.
+
+   One job: make a judgement cost three seconds instead of sixty. Everything
+   here follows from that — one item on screen at a time, no scrolling, no
+   mouse required, and the decision keys always in the same place so the hand
+   learns them and the eye stops looking.
+   ========================================================================== */
+
+.review-body { display: grid; grid-template-rows: var(--topbar-h) 1fr var(--statusbar-h); }
+
+.rv-main { overflow-y: auto; display: grid; place-items: start center; padding: var(--sp-5) var(--sp-4); }
+.rv-pane { width: min(940px, 100%); }
+.rv-pane.hidden { display: none; }
+
+.rv-question {
+  margin: 0 0 var(--sp-4); text-align: center;
+  font-size: var(--text-md); color: var(--fg-muted);
+}
+
+/* progress ---------------------------------------------------------------- */
+.rv-progress { display: flex; align-items: center; gap: var(--sp-2); min-width: 220px; }
+.rv-bar { flex: 1; height: 5px; border-radius: 3px; background: var(--bg-active); overflow: hidden; }
+.rv-bar i { display: block; height: 100%; width: 0; background: var(--accent);
+            border-radius: 3px; transition: width var(--dur) var(--ease); }
+
+/* anchor ------------------------------------------------------------------ */
+.rv-anchor {
+  position: relative; padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-4);
+  background: var(--bg-inset); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); text-align: center;
+}
+.rv-tag {
+  position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+  padding: 2px 8px; border-radius: 9px;
+  font: 700 9px/1.6 var(--font-mono); letter-spacing: .8px;
+  background: var(--accent); color: var(--accent-fg);
+}
+.rv-anchor h2 { margin: var(--sp-2) 0 var(--sp-1); font-size: var(--text-xl); }
+.rv-anchor p { margin: 0; color: var(--fg-muted); font-size: var(--text-md); }
+
+/* The structural signature is the thing you should actually be comparing, so
+   it gets its own visual channel rather than reading as more definition. */
+.rv-struct {
+  margin-top: var(--sp-2) !important; padding-top: var(--sp-2);
+  border-top: 1px dashed var(--border);
+  font-size: var(--text-sm) !important; color: var(--fg-subtle) !important;
+  font-style: italic; line-height: 1.55;
+}
+.rv-struct:empty { display: none; }
+
+/* options ----------------------------------------------------------------- */
+.rv-options { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.rv-option {
+  position: relative; padding: var(--sp-4) var(--sp-4) var(--sp-5);
+  text-align: left; border-radius: var(--radius-lg);
+  background: var(--bg-surface); border: 2px solid var(--border);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.rv-option:hover { border-color: var(--border-strong); }
+.rv-option.picked { border-color: var(--accent); transform: translateY(-2px); }
+.rv-option h3 { margin: var(--sp-2) 0 var(--sp-1); font-size: var(--text-lg); }
+.rv-option .rv-def { margin: 0; color: var(--fg-muted); font-size: var(--text-sm); line-height: 1.5; }
+.rv-key {
+  display: grid; place-items: center; width: 22px; height: 22px;
+  border-radius: var(--radius-sm); background: var(--bg-active); color: var(--fg-muted);
+  font: 700 var(--text-sm)/1 var(--font-mono);
+}
+.rv-dom {
+  position: absolute; bottom: var(--sp-2); right: var(--sp-3);
+  font-size: var(--text-xs); color: var(--fg-subtle);
+}
+
+/* actions ----------------------------------------------------------------- */
+.rv-actions {
+  display: flex; align-items: center; gap: var(--sp-2);
+  margin-top: var(--sp-4); justify-content: center; flex-wrap: wrap;
+}
+.rv-actions.wide { gap: var(--sp-3); }
+.rv-actions kbd { margin-right: 5px; }
+.rv-hint { font-size: var(--text-xs); color: var(--fg-subtle); }
+
+/* reveal ------------------------------------------------------------------ */
+.rv-reveal {
+  margin-top: var(--sp-4); padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md); font-size: var(--text-sm); line-height: 1.6;
+  background: var(--accent-wash); border-left: 3px solid var(--accent);
+}
+.rv-reveal.disagree { background: rgba(210,153,34,.12); border-left-color: var(--warning); }
+.rv-reveal.hidden { display: none; }
+.rv-reveal strong { color: var(--fg); }
+
+/* concept mode ------------------------------------------------------------ */
+.rv-card {
+  position: relative; padding: var(--sp-5); text-align: center;
+  background: var(--bg-inset); border: 1px solid var(--border); border-radius: var(--radius-lg);
+}
+.rv-card h2 { margin: var(--sp-2) 0 var(--sp-3); font-size: var(--text-2xl); }
+.rv-card .rv-dom { position: static; display: inline-block; padding: 2px 8px;
+                   border-radius: 9px; background: var(--bg-active); }
+.rv-editable {
+  font-size: var(--text-lg); line-height: 1.55; color: var(--fg-muted);
+  padding: var(--sp-2); border-radius: var(--radius-md);
+  border: 1px dashed transparent; outline: none; max-width: 62ch; margin: 0 auto;
+}
+.rv-editable:hover { border-color: var(--border); }
+.rv-editable:focus { border-color: var(--accent); border-style: solid; color: var(--fg); }
+
+.rv-why { margin-top: var(--sp-4); text-align: center; }
+.rv-chips { display: flex; gap: var(--sp-2); justify-content: center;
+            flex-wrap: wrap; margin-top: var(--sp-2); }
+.rv-chip {
+  padding: 4px 10px; border-radius: 12px; font-size: var(--text-xs);
+  background: var(--bg-inset); border: 1px solid var(--border); color: var(--fg-muted);
+}
+.rv-chip:hover { border-color: var(--border-strong); color: var(--fg); }
+.rv-chip.on { background: var(--accent-wash); border-color: var(--accent); color: var(--accent); }
+
+/* batch picker ------------------------------------------------------------ */
+.rv-batches { display: grid; gap: var(--sp-2); max-width: 560px; margin: 0 auto; }
+.rv-batch {
+  display: flex; align-items: center; gap: var(--sp-3); width: 100%;
+  padding: var(--sp-3) var(--sp-4); text-align: left;
+  background: var(--bg-inset); border: 1px solid var(--border); border-radius: var(--radius-md);
+}
+.rv-batch:hover { border-color: var(--accent); }
+.rv-batch .rv-batch-name { font-weight: 600; }
+.rv-batch .rv-batch-meta { margin-left: auto; font: var(--text-xs)/1 var(--font-mono);
+                           color: var(--fg-subtle); }
+
+@media (max-width: 720px) {
+  .rv-options { grid-template-columns: 1fr; }
+}
