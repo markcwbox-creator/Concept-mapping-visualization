@@ -1,0 +1,25 @@
+# No-GPU control run. Embeds the seed list on CPU in seconds.
+#
+# Use this to iterate on pairing weights and the front end without burning GPU
+# time, and as the baseline your residual-stream build must beat on
+# `probe_accuracy` (see sweep.py). If it does not beat MiniLM, the problem is
+# in extraction, not in the idea.
+
+concepts: data/concepts/seed_concepts.jsonl
+probes: data/probes/example_probes.jsonl
+build_dir: data/build
+
+encoder: sentence
+model: sentence-transformers/all-MiniLM-L6-v2
+batch_size: 64
+device: cpu
+
+center: true
+remove_top_k: 2   # 384-dim, so the dim//100 rule would round to the floor anyway
+whiten: false
+
+knn_k: 24
+n_pairs: 200
+layout: auto
+reduced_dim: 256
+embed_vectors: true

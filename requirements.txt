@@ -1,0 +1,28 @@
+# Viewing the committed build in the browser needs NOTHING from this file —
+# `python3 -m http.server --directory web` uses only the standard library.
+# Install the rest when you want to build a map of your own.
+
+# Core — every stage except viewing.
+numpy>=1.24
+PyYAML>=6.0
+
+# Extraction (the only stage that needs a GPU).
+torch>=2.1
+transformers>=4.44
+tokenizers>=0.19
+
+# Optional, per feature. Install what you need:
+#   4-bit quantisation on a small GPU
+# bitsandbytes>=0.43
+#   better 2-D layout than PCA (strongly recommended above ~1k concepts)
+# umap-learn>=0.5
+#   approximate nearest neighbours above ~100k concepts
+# faiss-cpu>=1.8
+# annoy>=1.17
+#   SAE features
+# sae-lens>=3.0
+# safetensors>=0.4
+#   the MiniLM control run
+# sentence-transformers>=3.0
+#   tests
+# pytest>=8.0

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept Collider — Review</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
+<link rel="stylesheet" href="styles/review.css">
+</head>
+<body class="review-body">
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◈</span>
+    <span class="brand-name">Review</span>
+    <span class="brand-env" id="batch-name">—</span>
+  </div>
+  <div class="topbar-sep"></div>
+  <div class="rv-progress" id="progress-wrap">
+    <div class="rv-bar"><i id="progress-bar"></i></div>
+    <span class="mono subtle" id="progress-text">0 / 0</span>
+  </div>
+  <div class="topbar-spacer"></div>
+  <span class="mono subtle" id="rate-text"></span>
+  <div class="topbar-sep"></div>
+  <button class="btn sm" id="btn-export">Export</button>
+  <button class="btn sm ghost" id="btn-restart" title="Discard decisions for this batch">Reset</button>
+  <button class="btn icon ghost" id="btn-theme" title="Toggle theme">◐</button>
+</header>
+
+<main class="rv-main">
+
+  <!-- batch picker ---------------------------------------------------- -->
+  <section id="picker" class="rv-pane">
+    <div class="empty">
+      <div class="glyph" aria-hidden="true">◧</div>
+      <h3>Pick a batch to review</h3>
+      <p>Stage candidate files with <code>python scripts/stage_review.py</code>, then reload.</p>
+    </div>
+    <div id="batch-list" class="rv-batches"></div>
+  </section>
+
+  <!-- triplet mode ----------------------------------------------------- -->
+  <section id="triplet" class="rv-pane hidden">
+    <p class="rv-question">Which is structurally closer to the anchor?</p>
+
+    <div class="rv-anchor">
+      <span class="rv-tag">ANCHOR</span>
+      <h2 id="t-anchor-label"></h2>
+      <p id="t-anchor-def"></p>
+      <p class="rv-struct" id="t-anchor-struct"></p>
+    </div>
+
+    <div class="rv-options">
+      <button class="rv-option" id="t-opt-1" data-slot="0">
+        <span class="rv-key">1</span>
+        <h3></h3><p class="rv-def"></p><p class="rv-struct"></p>
+        <span class="rv-dom"></span>
+      </button>
+      <button class="rv-option" id="t-opt-2" data-slot="1">
+        <span class="rv-key">2</span>
+        <h3></h3><p class="rv-def"></p><p class="rv-struct"></p>
+        <span class="rv-dom"></span>
+      </button>
+    </div>
+
+    <div class="rv-actions">
+      <button class="btn sm" data-act="skip"><kbd>space</kbd> neither / unsure</button>
+      <button class="btn sm ghost" data-act="undo"><kbd>u</kbd> undo</button>
+      <span class="rv-hint">Your answer is recorded independently — the proposal is hidden until you choose.</span>
+    </div>
+
+    <div class="rv-reveal hidden" id="t-reveal"></div>
+  </section>
+
+  <!-- concept mode ----------------------------------------------------- -->
+  <section id="concept" class="rv-pane hidden">
+    <p class="rv-question">Is this a usable concept, correctly defined?</p>
+
+    <div class="rv-card">
+      <span class="rv-dom" id="c-domain"></span>
+      <h2 id="c-label"></h2>
+      <p id="c-def" class="rv-editable" contenteditable="true" spellcheck="false"></p>
+      <p class="rv-hint">Click the definition to fix it in place. Edits are saved with your decision.</p>
+    </div>
+
+    <div class="rv-reveal hidden" id="c-flag"></div>
+
+    <div class="rv-actions wide">
+      <button class="btn sm primary" data-act="keep"><kbd>j</kbd> keep</button>
+      <button class="btn sm" data-act="drop"><kbd>k</kbd> drop</button>
+      <button class="btn sm" data-act="skip"><kbd>space</kbd> unsure</button>
+      <button class="btn sm ghost" data-act="undo"><kbd>u</kbd> undo</button>
+    </div>
+    <div class="rv-why">
+      <span class="rv-hint">Drop reason (optional, helps improve the next batch):</span>
+      <div class="rv-chips" id="c-reasons"></div>
+    </div>
+  </section>
+
+  <!-- done ------------------------------------------------------------- -->
+  <section id="done" class="rv-pane hidden">
+    <div class="empty">
+      <div class="glyph" aria-hidden="true">✓</div>
+      <h3>Batch complete</h3>
+      <p id="done-summary"></p>
+      <button class="btn primary" id="btn-export-2">Export decisions</button>
+    </div>
+  </section>
+</main>
+
+<footer class="statusbar" id="statusbar"></footer>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script type="module" src="js/review.js"></script>
+</body>
+</html>

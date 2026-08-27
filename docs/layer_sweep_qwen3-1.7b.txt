@@ -1,0 +1,78 @@
+01:27:26 INFO collider.encoders.hf_residual: loading Qwen/Qwen3-1.7B on cpu
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-1.7B/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e/config.json "HTTP/1.1 200 OK"
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-1.7B/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e/tokenizer_config.json "HTTP/1.1 200 OK"
+01:27:27 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-1.7B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+01:27:27 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-1.7B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:27:27 WARNING huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+01:27:27 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+01:27:28 INFO httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-1.7B "HTTP/1.1 200 OK"
+01:27:28 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:27:28 INFO httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-1.7B/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e/config.json "HTTP/1.1 200 OK"
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+01:27:28 INFO httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-1.7B/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:   0%|          | 1/310 [00:00<04:02,  1.28it/s]Loading weights:  40%|████      | 124/310 [00:00<00:00, 189.24it/s]Loading weights:  62%|██████▏   | 193/310 [00:01<00:00, 203.58it/s]Loading weights:  78%|███████▊  | 241/310 [00:01<00:00, 219.22it/s]Loading weights:  91%|█████████ | 281/310 [00:01<00:00, 222.74it/s]Loading weights: 100%|██████████| 310/310 [00:01<00:00, 189.10it/s]
+[transformers] [1mQwen3Model LOAD REPORT[0m from: Qwen/Qwen3-1.7B
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+01:27:30 INFO collider.encoders.hf_residual: model has 28 blocks
+01:27:30 INFO collider.sweep: sweeping layers [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28] of 28 on 153 concepts
+01:27:31 INFO collider.encoders.hf_residual: template=bare 8/153
+01:27:53 INFO collider.encoders.hf_residual: template=concept_of 8/153
+01:28:17 INFO collider.encoders.hf_residual: template=domain_gloss 8/153
+01:28:44 INFO collider.encoders.hf_residual: template=dictionary 8/153
+01:29:07 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:07 INFO collider.sweep: layer  2: {'layer': 2, 'depth_frac': 0.071, 'domain_purity': 0.0961, 'triplet_accuracy': 0.6016, 'mean_cosine': -0.0065, 'cosine_std': 0.061, 'effective_rank': 117.1, 'probe_accuracy': 0.6538}
+01:29:07 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:07 INFO collider.sweep: layer  4: {'layer': 4, 'depth_frac': 0.143, 'domain_purity': 0.1039, 'triplet_accuracy': 0.6018, 'mean_cosine': -0.0065, 'cosine_std': 0.0608, 'effective_rank': 117.6, 'probe_accuracy': 0.6154}
+01:29:07 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:07 INFO collider.sweep: layer  6: {'layer': 6, 'depth_frac': 0.214, 'domain_purity': 0.1078, 'triplet_accuracy': 0.5982, 'mean_cosine': -0.0065, 'cosine_std': 0.063, 'effective_rank': 115.8, 'probe_accuracy': 0.7308}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer  8: {'layer': 8, 'depth_frac': 0.286, 'domain_purity': 0.1503, 'triplet_accuracy': 0.636, 'mean_cosine': -0.0065, 'cosine_std': 0.0618, 'effective_rank': 116.7, 'probe_accuracy': 0.8077}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 10: {'layer': 10, 'depth_frac': 0.357, 'domain_purity': 0.1438, 'triplet_accuracy': 0.636, 'mean_cosine': -0.0065, 'cosine_std': 0.0637, 'effective_rank': 115.2, 'probe_accuracy': 0.7308}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 12: {'layer': 12, 'depth_frac': 0.429, 'domain_purity': 0.1503, 'triplet_accuracy': 0.636, 'mean_cosine': -0.0065, 'cosine_std': 0.0681, 'effective_rank': 111.8, 'probe_accuracy': 0.7692}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 14: {'layer': 14, 'depth_frac': 0.5, 'domain_purity': 0.1327, 'triplet_accuracy': 0.6238, 'mean_cosine': -0.0065, 'cosine_std': 0.0682, 'effective_rank': 112.1, 'probe_accuracy': 0.8077}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 16: {'layer': 16, 'depth_frac': 0.571, 'domain_purity': 0.1255, 'triplet_accuracy': 0.6344, 'mean_cosine': -0.0065, 'cosine_std': 0.0695, 'effective_rank': 111.0, 'probe_accuracy': 0.9231}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 18: {'layer': 18, 'depth_frac': 0.643, 'domain_purity': 0.1431, 'triplet_accuracy': 0.6366, 'mean_cosine': -0.0065, 'cosine_std': 0.0698, 'effective_rank': 110.3, 'probe_accuracy': 0.8846}
+01:29:08 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:08 INFO collider.sweep: layer 20: {'layer': 20, 'depth_frac': 0.714, 'domain_purity': 0.1556, 'triplet_accuracy': 0.645, 'mean_cosine': -0.0065, 'cosine_std': 0.0707, 'effective_rank': 110.0, 'probe_accuracy': 0.8077}
+01:29:09 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:09 INFO collider.sweep: layer 22: {'layer': 22, 'depth_frac': 0.786, 'domain_purity': 0.2007, 'triplet_accuracy': 0.6676, 'mean_cosine': -0.0064, 'cosine_std': 0.0703, 'effective_rank': 110.2, 'probe_accuracy': 0.8077}
+01:29:09 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:09 INFO collider.sweep: layer 24: {'layer': 24, 'depth_frac': 0.857, 'domain_purity': 0.2105, 'triplet_accuracy': 0.6792, 'mean_cosine': -0.0064, 'cosine_std': 0.0691, 'effective_rank': 111.4, 'probe_accuracy': 0.8077}
+01:29:09 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:09 INFO collider.sweep: layer 26: {'layer': 26, 'depth_frac': 0.929, 'domain_purity': 0.2007, 'triplet_accuracy': 0.6768, 'mean_cosine': -0.0064, 'cosine_std': 0.0658, 'effective_rank': 114.1, 'probe_accuracy': 0.7308}
+01:29:09 INFO collider.neighbors: kNN: n=153 k=10 backend=exact approximate=False
+01:29:09 INFO collider.sweep: layer 28: {'layer': 28, 'depth_frac': 1.0, 'domain_purity': 0.2163, 'triplet_accuracy': 0.688, 'mean_cosine': -0.0064, 'cosine_std': 0.066, 'effective_rank': 114.0, 'probe_accuracy': 0.8462}
+layer  depth_frac  domain_purity  triplet_accuracy  mean_cosine  cosine_std  effective_rank  probe_accuracy
+-----------------------------------------------------------------------------------------------------------
+    2       0.071         0.0961            0.6016      -0.0065       0.061           117.1          0.6538
+    4       0.143         0.1039            0.6018      -0.0065      0.0608           117.6          0.6154
+    6       0.214         0.1078            0.5982      -0.0065       0.063           115.8          0.7308
+    8       0.286         0.1503             0.636      -0.0065      0.0618           116.7          0.8077
+   10       0.357         0.1438             0.636      -0.0065      0.0637           115.2          0.7308
+   12       0.429         0.1503             0.636      -0.0065      0.0681           111.8          0.7692
+   14         0.5         0.1327            0.6238      -0.0065      0.0682           112.1          0.8077
+   16       0.571         0.1255            0.6344      -0.0065      0.0695           111.0          0.9231 <-
+   18       0.643         0.1431            0.6366      -0.0065      0.0698           110.3          0.8846
+   20       0.714         0.1556             0.645      -0.0065      0.0707           110.0          0.8077
+   22       0.786         0.2007            0.6676      -0.0064      0.0703           110.2          0.8077
+   24       0.857         0.2105            0.6792      -0.0064      0.0691           111.4          0.8077
+   26       0.929         0.2007            0.6768      -0.0064      0.0658           114.1          0.7308
+   28         1.0         0.2163             0.688      -0.0064       0.066           114.0          0.8462
+
+wrote data/build/layer_sweep.json
+Pick a layer from the curve, then set `layer:` in your config.

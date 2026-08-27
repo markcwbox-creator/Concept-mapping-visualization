@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Build artifacts. `vectors.npy` for 10k concepts is ~80 MB and is
+# reproducible from configs/ + the concept list, so it does not belong in git.
+data/build/vectors.npy
+data/build/vectors.meta.json
+data/build/knn.npz
+data/build/space.npz
+data/build/graph.json
+data/build/vectors.i8
+data/build/pairs.json
+data/build/layer_sweep.json
+
+# The build committed under web/data is deliberate: it lets anyone open the
+# front end and click through a real collision without owning a GPU. It is a
+# genuine Qwen3-1.7B build (see docs/FINDINGS.md), not a fixture. Your own
+# `collider build` overwrites it locally; commit it only if you mean to.
+data/build/space.json
+data/build/structure_vectors/
+data/build/structure_experiment.json
+
+# Generated staging area for the review tool (rebuild with scripts/stage_review.py)
+web/data/review/

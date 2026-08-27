@@ -1,0 +1,49 @@
+// Triplets: "anchor should be closer to `closer` than to `farther`".
+//
+// PROVENANCE: these 26 were written by an LLM (Claude), not by a human. They
+// were composed by hand rather than generated programmatically, which is what
+// an earlier version of this header misleadingly called "hand-written" — but
+// no human authored or reviewed them. That matters enormously, because the
+// concept definitions and the structural signatures they are scored against
+// come from the same source. `probe_accuracy` measured on this file is
+// therefore the rate at which Qwen3-1.7B agrees with Claude, on text Claude
+// also wrote — NOT an independent measurement. Treat every number derived from
+// it as provisional until the rows carry a human judgement.
+// See docs/RED_TEAM.md and the review tool (web/review.html).
+// These encode *relational* structure (mechanism, analogy, part-of), not topic
+// overlap, which is exactly what domain_purity cannot measure. A layer that
+// wins on domain purity but loses here is doing subject classification, not
+// concept geometry. Aim for 100-200 of these before trusting a layer choice;
+// the two dozen below are a starting template, not a sufficient set.
+//
+// Cross-domain analogies: the anchor should prefer its structural twin over a
+// same-domain neighbour that is merely topically adjacent.
+{"anchor": "natural-selection", "closer": "gradient-descent", "farther": "grammatical-case", "note": "both are iterative hill-climbing on a fitness signal"}
+{"anchor": "antibiotic-resistance", "closer": "natural-selection", "farther": "triage", "note": "resistance is selection, not clinical logistics"}
+{"anchor": "herd-immunity", "closer": "critical-mass", "farther": "chiaroscuro", "note": "both are threshold phenomena in a population"}
+{"anchor": "trophic-cascade", "closer": "feedback-loop", "farther": "phoneme", "note": "propagating effects through a coupled system"}
+{"anchor": "technical-debt", "closer": "opportunity-cost", "farther": "timbre", "note": "both are deferred-cost accounting"}
+{"anchor": "caching", "closer": "immune-memory", "farther": "cantilever", "note": "storing a past result to answer faster next time"}
+{"anchor": "bottleneck", "closer": "carrying-capacity", "farther": "pastiche", "note": "a limiting factor setting system throughput"}
+{"anchor": "moral-hazard", "closer": "principal-agent-problem", "farther": "diffusion", "note": "both are misaligned-incentive structures"}
+{"anchor": "hysteresis", "closer": "learned-helplessness", "farther": "solubility", "note": "current state depends on history of inputs"}
+{"anchor": "liminality", "closer": "metamorphosis", "farther": "jurisdiction", "note": "the unstable middle of a staged transition"}
+{"anchor": "desire-path", "closer": "vernacular-architecture", "farther": "statute-of-limitations", "note": "form emerging from use rather than design"}
+{"anchor": "overfitting", "closer": "confirmation-bias", "farther": "counterpoint", "note": "over-committing to the evidence already seen"}
+{"anchor": "creative-destruction", "closer": "ecological-succession", "farther": "burden-of-proof", "note": "renewal through the clearing of what came before"}
+{"anchor": "redundancy", "closer": "fail-safe", "farther": "semantic-drift", "note": "both are failure-tolerance strategies"}
+{"anchor": "compression", "closer": "abstraction-layer", "farther": "attachment", "note": "discarding detail to expose usable structure"}
+{"anchor": "network-effect", "closer": "cultural-transmission", "farther": "activation-energy", "note": "value or spread growing with adoption"}
+// Mechanism over topic: the anchor should prefer the thing that explains it.
+{"anchor": "placebo-effect", "closer": "priming", "farther": "polymerisation", "note": "expectation shaping response"}
+{"anchor": "chronic-inflammation", "closer": "feedback-loop", "farther": "modulation", "note": "a defensive loop that fails to switch off"}
+{"anchor": "phase-transition", "closer": "symmetry-breaking", "farther": "oral-tradition", "note": "the mechanism behind the transition"}
+{"anchor": "improvisation", "closer": "flow-state", "farther": "strict-liability", "note": "real-time performance under matched difficulty"}
+{"anchor": "gift-economy", "closer": "social-contract", "farther": "entropy", "note": "obligation as the basis of social order"}
+// Within-domain sanity checks: these should be easy. If a layer fails these,
+// something is broken in extraction rather than merely suboptimal.
+{"anchor": "monetary-policy", "closer": "inflation", "farther": "phoneme"}
+{"anchor": "working-memory", "closer": "habituation", "farther": "cantilever"}
+{"anchor": "counterpoint", "closer": "polyrhythm", "farther": "fiduciary-duty"}
+{"anchor": "precedent", "closer": "due-process", "farther": "photosynthesis"}
+{"anchor": "entropy", "closer": "conservation-of-energy", "farther": "taboo"}

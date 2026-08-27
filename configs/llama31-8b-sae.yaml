@@ -1,0 +1,40 @@
+# Cloud / Colab build: Llama-3.1-8B with public SAE features.
+#
+# Needs ~16 GB VRAM in fp16 (A100, L4, or a T4 with load_in_4bit: true).
+# Run `extract` here, copy data/build/vectors.npy + vectors.meta.json back to
+# your laptop, and run `build` locally on CPU.
+#
+# IMPORTANT: `layer` must match the layer the SAE was trained on. Check the
+# SAE release card. A mismatch produces plausible-looking nonsense.
+
+concepts: data/concepts/seed_concepts.jsonl
+probes: data/probes/example_probes.jsonl
+build_dir: data/build
+
+encoder: sae
+model: meta-llama/Llama-3.1-8B
+layer: 20
+sae_source: sae_lens
+sae_release: llama_scope_lxr_8x
+sae_id: l20r_8x
+sae_top_k: 128
+
+pooling: mean
+templates: default
+batch_size: 8
+load_in_4bit: false
+dtype: float16
+
+# SAE vectors are non-negative and sparse; space.prepare detects this via the
+# encoder's `skip_isotropy` flag and applies L2 normalisation only.
+center: true
+remove_top_k: null
+whiten: false
+
+knn_k: 24
+n_pairs: 200
+layout: auto
+# 65k-dim sparse vectors do not survive PCA to 256 well. Either raise this or
+# set embed_vectors: false and serve collisions from Python.
+reduced_dim: 512
+embed_vectors: true
