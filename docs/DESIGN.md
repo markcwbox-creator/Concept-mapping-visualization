@@ -135,9 +135,9 @@ distribution of *your* space rather than against magic constants:
 | feature | what it captures | why |
 |---|---|---|
 | `distance` | near a target percentile, penalised for extremity | a soft window, not a threshold |
-| `bridgeability` | a kNN path exists, 3-5 hops | **the incoherence filter; does the most work** |
-| `domain_gap` | different labelled domains | cheap prior for "nobody has looked here" |
-| `midpoint_gap` | the semantic midpoint sits in a sparse region | a crowded midpoint means already-thought-of |
+| `bridgeability` | a kNN path exists, at a hop count read off this graph's own distribution, with path cost breaking ties | **the incoherence filter; does the most work** |
+| `domain_gap` | distance between the two domain centroids | graded prior for "nobody has looked here" |
+| `midpoint_gap` | the semantic midpoint sits in a sparse region, **excluding the pair itself** | a crowded midpoint means already-thought-of |
 | `analogy` | similar local density profiles | structure to transfer, not just juxtaposition |
 
 Unreachable pairs are filtered out entirely, not down-weighted. Selection is
@@ -148,10 +148,52 @@ that a single well-separated domain pair dominates the whole tail.
 full feature breakdown into `graph.json` and the UI, so you can re-weight after
 seeing results rather than guessing up front. Expect to change them.
 
-**Known weakness.** `domain_gap` rewards your own taxonomy, and `analogy` is a
-crude proxy — local density similarity is a long way from structural analogy in
-the Gentner sense. Both are cheap stand-ins for things that would be better
-measured with SAE feature overlap (§8).
+**Three of these five were once decorative, and that is the instructive part.**
+Measured on the first real build, `domain_gap` was **1.000 on every one of the
+200 shipped pairs**, `midpoint_gap` spanned 0.129–0.144, and `bridgeability`
+took **two** distinct values. A weighted sum with three constant terms is a
+two-feature scorer wearing a five-feature label, and it still produced a
+plausible ranked list every time — which is precisely why it survived so long.
+
+The causes were different in kind, and only one was a tuning mistake:
+
+* `domain_gap` was **saturated**. Binary "different domain?" is 96% true for
+  random pairs at this list size and 100% true after the distance pre-filter.
+  It was a filter presented as a feature. Now graded by centroid separation
+  (range 0.00–1.37, correlation with pair distance 0.12).
+* `midpoint_gap` was **algebraically circular**. The normalised midpoint of two
+  unit vectors sits at `sqrt((1+cos)/2)` from both endpoints — nearer than
+  anything else in a 153-concept list — so "how empty is the midpoint" was
+  measuring the pair's own separation. It correlated with `distance` at
+  **r = 1.000**, and the midpoint's nearest neighbour was one of the pair
+  itself in **4000 of 4000** candidates. Masking the endpoints, which
+  `bridges.py` had done all along, drops the correlation to 0.13.
+* `bridgeability` was **mis-targeted**. `target_hops = 4.0` sat in the far tail
+  of a graph where 97.6% of reachable candidates bridge in 2 or 3 hops, so the
+  feature rewarded the longest chain rather than the most productive one. The
+  target now comes from the graph's own hop distribution, and path cost — which
+  the code computed and then discarded — breaks ties within a hop stratum.
+
+The general lesson is worth more than the three fixes: **a degenerate feature
+and a working feature produce the same-looking output.** Nothing crashes,
+nothing looks wrong, and the ranked list stays plausible. Only measuring the
+spread finds it, which is what `test_features_are_not_degenerate` now does on
+every run.
+
+**What the hop fix does not buy you.** Deriving the target stops the feature
+aiming outside the graph; it cannot put information into a graph that has none.
+At 153 concepts with `knn_k = 24`, every reachable pair bridges in 2 or 3 hops,
+so the derived target is 2.0 and hop count discriminates almost nothing — the
+path-cost tie-break carries most of what `bridgeability` now contributes. That
+is the honest state of it: the metric is correctly aimed and still nearly
+uninformative, and only a bigger concept list changes that. Lowering `knn_k`
+lengthens paths artificially and buys nothing real.
+
+**Remaining known weakness.** `domain_gap` still rewards your own taxonomy —
+grading it makes it a graded prior, not a true one. `analogy` remains a crude
+proxy: local density-curve overlap is a long way from structural analogy in the
+Gentner sense, and the name claims more than the mathematics delivers. Both are
+cheap stand-ins for what SAE feature overlap (§8) would measure directly.
 
 ---
 

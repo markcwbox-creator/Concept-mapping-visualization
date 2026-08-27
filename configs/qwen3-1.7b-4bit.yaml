@@ -33,7 +33,8 @@ edges_per_node: 8
 
 n_pairs: 200
 distance_percentile: 92.0
-target_hops: 4.0
+# null == derive from the graph's own hop distribution (recommended)
+target_hops: null
 max_per_domain_pair: 6
 max_per_concept: 4
 pair_weights:

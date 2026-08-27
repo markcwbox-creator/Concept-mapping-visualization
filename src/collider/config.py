@@ -56,7 +56,11 @@ class Config:
     n_pairs: int = 200
     n_candidates: int = 20_000
     distance_percentile: float = 92.0
-    target_hops: float = 4.0
+    # None == read the productive hop range off the kNN graph's own
+    # distribution. A fixed value here is a claim about graph diameter, and a
+    # wrong one silently makes `bridgeability` rank the longest chain instead
+    # of the most productive; see the degeneracy note in pairs.py.
+    target_hops: float | None = None
     max_per_domain_pair: int = 6
     max_per_concept: int = 4
     pair_weights: dict[str, float] = field(default_factory=dict)

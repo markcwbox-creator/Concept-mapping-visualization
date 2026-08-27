@@ -153,8 +153,8 @@ Checked line by line against `data/build/pairs.json`, `graph.json`,
 | claim | where | what the build actually shows |
 |---|---|---|
 | "A **blend vacancy above 1** means nothing in your map names that blend… which is the case worth looking at" | `README.md:118` | Vacancy computed as in `bridges.py:158` over all 11,628 concept pairs: median **1.010**, range 0.90–1.12, **58% of all pairs exceed 1**. The threshold selects the majority, not the interesting minority. In a 153-concept map every blend point is vacant; the statistic is a tautology at this scale. |
-| bridgeability targets "3-5 hops"; "a chain of three or four steps actually exists" | `DESIGN.md:138`, `pairs.py:12,22` | In the 200 shipped pairs, hop counts are **2 or 3 only** — max 3, median 3. `target_hops=4.0` is unreachable in this build, so the feature never scores above 0.801 and is effectively binary. |
-| pairs "scored on distance, bridgeability, domain gap, midpoint sparsity, and neighbourhood-structure similarity" | `README.md:103` | Across the 200 shipped pairs: `domain_gap` is **1.000 for every pair** (zero variance — it is a filter, not a feature); `midpoint_gap` spans **0.129–0.144**; `analogy` spans 0.75–0.98 with median 0.91. Only `distance` (0.49–1.00) and the two-valued `bridgeability` actually rank anything. "Five features" is presentation; two do the work. |
+| bridgeability targets "3-5 hops"; "a chain of three or four steps actually exists" | `DESIGN.md:138`, `pairs.py:12,22` | In the 200 shipped pairs, hop counts are **2 or 3 only** — max 3, median 3. `target_hops=4.0` is unreachable in this build, so the feature never scores above 0.801 and is effectively binary. **FIXED** — see §11. |
+| pairs "scored on distance, bridgeability, domain gap, midpoint sparsity, and neighbourhood-structure similarity" | `README.md:103` | Across the 200 shipped pairs: `domain_gap` is **1.000 for every pair** (zero variance — it is a filter, not a feature); `midpoint_gap` spans **0.129–0.144**; `analogy` spans 0.75–0.98 with median 0.91. Only `distance` (0.49–1.00) and the two-valued `bridgeability` actually rank anything. "Five features" is presentation; two do the work. **FIXED** — see §11, and the cause of the `midpoint_gap` case turned out to be a bug, not a weighting choice. |
 | "real cross-domain mechanism analogies **that no topic model would produce**" | `FINDINGS §3` | No topic model, and no baseline of any kind, was ever run. The MiniLM control that `DESIGN §6` calls the decisive test ("If your residual-stream build does not beat an off-the-shelf sentence encoder on the probe triplets, the problem is in extraction") appears in `configs/` and `requirements.txt` and **is not reported anywhere**. |
 | "Anisotropy is far worse than the literature's framing suggests" | `FINDINGS §1` heading | Mean raw cosine 0.838 is squarely inside the range the anisotropy literature reports for mid/late transformer layers. The measurement is right; the comparative framing is not supported and is not needed — the finding stands on its own. |
 | "Roughly 10k concepts in 20-30 minutes" on 4 GB; "2.5 MB for 10k concepts"; "under 6 ms" per collision | `README.md` §"On 4 GB of VRAM", §"Layout" | The only build in the repo is 153 concepts, fp32, **on CPU** (`graph.json` meta: `quantised_4bit: false`, `device: cpu`). Every 4-bit, GPU and 10k-scale figure is extrapolation presented in the indicative mood. |
@@ -536,3 +536,104 @@ Honest options, none free:
 
 No option is taken here. The measurement is recorded so the choice is made
 knowingly.
+
+
+---
+
+## Addendum 2 — the three degenerate features, resolved
+
+The audit's §3 was right that three of the five pair-scoring features carried no
+information. Fixing them turned up something the audit did not have: one of the
+three was not a tuning choice at all.
+
+### `midpoint_gap` was measuring the pair against itself
+
+The feature asks "is the semantic midpoint of these two concepts in an empty
+region?" — the idea being that an unoccupied blend is a hole in the map. It was
+computed as the distance from the normalised midpoint to its nearest neighbour
+**over the whole concept list, the two endpoints included**.
+
+For unit vectors that is circular. The normalised midpoint of `a` and `b` sits
+at `sqrt((1+cos(a,b))/2)` from each of them, and for any realistic concept list
+that is nearer than anything else in the space. So the "nearest neighbour of the
+midpoint" was `a` or `b` — in **4000 of 4000** measured candidates — and the
+feature was a monotone restatement of the pair's own distance. Correlation with
+`distance` across the candidate set: **r = 1.000**.
+
+Masking the two endpoints, which the question always implied ("does a *third*
+concept name this blend?"), drops that correlation to **0.13** and widens the
+spread 2.6×. `bridges.py` had masked the endpoints since it was written; this
+file never did. Two implementations of the same idea, one correct, and the
+divergence was invisible because both produced plausible lists.
+
+### `domain_gap` was a filter wearing a feature's clothes
+
+Binary "different domain?" is true for 96% of random pairs at 153 concepts over
+18 domains, and 100% after the distance pre-filter — hence zero variance. It now
+measures the distance between the two **domain centroids**: range 0.00–1.37,
+correlation with pair distance 0.12, so biology↔chemistry and
+biology↔jurisprudence are no longer scored as the same move. Same-domain pairs
+still score a hard zero.
+
+The audit's deeper objection stands unchanged: this rewards the author's
+taxonomy. Grading it makes it a *graded* prior, not a true one.
+
+### `bridgeability` was aimed outside the graph
+
+`target_hops = 4.0` was a hard-coded claim about graph diameter, and a wrong one:
+97.6% of reachable candidates bridge in 2 or 3 hops. Aiming at 4 made the feature
+rank the *longest* chain rather than the most productive one — the opposite of
+the documented intent. The target is now read off the graph's own hop
+distribution (75th percentile). Path cost, which the code computed on every
+candidate and then threw away, breaks ties within a hop stratum: among chains of
+equal length, prefer the one whose steps are tighter.
+
+### Measured before and after, on the 200 shipped pairs
+
+| feature | before (min–max, std) | after (min–max, std) | distinct values |
+|---|---|---|---|
+| `domain_gap` | 1.000–1.000, **0.000** | 0.142–0.993, 0.181 | 1 → **200** |
+| `midpoint_gap` | 0.131–0.142, 0.002 | 0.465–1.000, 0.116 | 66 → **200** |
+| `bridgeability` | 0.801–1.000, 0.079 | 0.700–0.994, 0.062 | **2** → **195** |
+| `midpoint_gap` × `distance` correlation | **+1.000** | **−0.005** | — |
+
+`test_features_are_not_degenerate`, `test_midpoint_gap_excludes_the_pair_itself`
+and `test_target_hops_adapts_to_the_graph` now fail the build if any of the five
+collapses again.
+
+### What is still open from §3 and §7
+
+* **Blend vacancy is still a tautology at this scale.** 58% of all pairs exceed
+  the ">1 means nothing names this blend" threshold, and after the fix every
+  selected pair sits at 1.01–1.12. At 153 concepts the whole space is sparse.
+  This is a concept-count problem, not a formula problem, and it does not go
+  away until the list is an order of magnitude bigger.
+* **`analogy` still claims more than it computes.** It is kNN-similarity-curve
+  shape overlap, which is a density statistic, not structural analogy in the
+  Gentner sense the docs invoke. Renaming it to `density_profile_overlap`
+  remains the honest move and has not been made.
+* **No baseline has been run.** The MiniLM control that `DESIGN §6` calls the
+  decisive test is still unreported.
+
+---
+
+## Addendum 3 — the structural-ontology finding is now a scope decision, not a defect
+
+Addendum 1 measured that `SIGNATURE_INSTRUCTION`'s mechanism/driver/**failure**
+template fits STEM subject matter far better than it fits the humanities: a
+failure clause appears in 39% of STEM signatures against 11% of non-STEM ones
+(biology 10/10, computing 6/12, philosophy 1/10, and 0% across economics, law,
+art, chemistry, linguistics and ecology). Three remedies were laid out and none
+was chosen.
+
+**The owner has now chosen: the STEM skew is accepted and intended.** The
+project's purpose is transferring solved methods to unsolved problems, and
+mechanism/driver/failure is the right decomposition for the fields where that
+transfer is tractable. A structural template that describes a chemical reaction
+and a legal doctrine equally well would describe neither usefully.
+
+This converts a finding into a documented scope boundary, and the boundary
+should be read plainly: **for non-STEM concepts this map's structural layer is
+weaker, and signatures there will under-specify.** That is a known cost of the
+decomposition, not evidence that the pipeline is malfunctioning. The finding
+stays on the record above so the trade is legible rather than accidental.

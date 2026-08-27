@@ -253,6 +253,69 @@ def test_sampled_pairs_are_all_bridgeable(vectors, concepts):
     assert all(np.isfinite(p.path_cost) for p in pairs)
 
 
+def test_features_are_not_degenerate(vectors, concepts):
+    """A feature that never varies is indistinguishable from one that works.
+
+    Three of the five scoring features were once decorative: `domain_gap` was
+    1.000 on all 200 shipped pairs, `midpoint_gap` spanned 0.129-0.144, and
+    `bridgeability` took two distinct values. Each still produced a plausible
+    ranked list, which is exactly why nobody noticed. This asserts every term
+    in the weighted sum actually spreads.
+    """
+    x = SpaceTransform.fit(vectors, remove_top_k=2).apply(vectors)
+    knn = build_knn(x, k=12, backend="exact")
+    pairs = sample_pairs(x, concepts, knn, n_pairs=60, n_candidates=6000)
+    assert len(pairs) >= 20
+
+    for name in ("distance", "bridgeability", "domain_gap", "midpoint_gap", "analogy"):
+        vals = np.array([p.features[name] for p in pairs])
+        assert vals.std() > 0.01, f"{name} is degenerate: std={vals.std():.5f}"
+        assert len(set(np.round(vals, 4))) > len(pairs) // 4, f"{name} has too few levels"
+
+
+def test_midpoint_gap_excludes_the_pair_itself(vectors, concepts):
+    """The bug: the midpoint's nearest neighbour is one of the pair, always.
+
+    For unit vectors the normalised midpoint sits at sqrt((1+cos)/2) from both
+    endpoints, which beats anything else in the list — so an unmasked search
+    measured the pair's own separation and nothing else. It correlated with
+    `distance` at r = 1.000 while looking like an independent feature.
+    """
+    x = SpaceTransform.fit(vectors, remove_top_k=2).apply(vectors)
+    knn = build_knn(x, k=12, backend="exact")
+    pairs = sample_pairs(x, concepts, knn, n_pairs=60, n_candidates=6000)
+
+    gap = np.array([p.features["midpoint_gap"] for p in pairs])
+    dist = np.array([p.distance for p in pairs])
+    r = abs(float(np.corrcoef(gap, dist)[0, 1]))
+    assert r < 0.75, f"midpoint_gap is a restatement of distance (r={r:.3f})"
+
+    # And the recorded absolute vacancy must come from a third concept, never
+    # from a or b: the endpoints are always nearer than any true bridge.
+    for p in pairs[:10]:
+        mid = x[p.a_idx] + x[p.b_idx]
+        mid /= np.linalg.norm(mid) + 1e-8
+        sims = x @ mid
+        assert sims.argmax() in (p.a_idx, p.b_idx), "premise of the test changed"
+
+
+def test_target_hops_adapts_to_the_graph(vectors, concepts):
+    """A hard-coded hop target is a claim about graph diameter.
+
+    At 4.0 it sat in the far tail of this build's distribution, so the feature
+    ranked the longest chain rather than the most productive one. Derived, it
+    must land inside the range the graph actually offers.
+    """
+    x = SpaceTransform.fit(vectors, remove_top_k=2).apply(vectors)
+    knn = build_knn(x, k=12, backend="exact")
+    pairs = sample_pairs(x, concepts, knn, n_pairs=60, n_candidates=6000)
+    hops = np.array([p.features["hops"] for p in pairs])
+    assert (hops > 0).all()
+    # Every selected pair scores above zero on bridgeability, which cannot
+    # happen if the target sits several hop-widths outside the real range.
+    assert min(p.features["bridgeability"] for p in pairs) > 0.2
+
+
 # ------------------------------------------------------------------ bridges
 
 

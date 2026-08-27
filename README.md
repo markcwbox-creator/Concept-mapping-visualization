@@ -129,9 +129,16 @@ decoration. See [docs/DESIGN.md §4](docs/DESIGN.md).
 **"Distant" is not the same as "interesting".** The most distant pairs are the
 most incoherent ones. Pairs are scored on distance *near a target percentile*,
 bridgeability through the kNN graph (unreachable pairs are filtered outright),
-domain gap, midpoint sparsity, and neighbourhood-structure similarity — with
-per-domain and per-concept diversity caps. Every pair carries its feature
+separation between the two domains' centroids, midpoint sparsity measured over
+every concept *except the pair itself*, and neighbourhood-structure similarity —
+with per-domain and per-concept diversity caps. Every pair carries its feature
 breakdown so you can re-weight after seeing results.
+
+Three of those five once contributed nothing measurable — one of them because
+of an outright bug, and none of them visibly, since a degenerate feature and a
+working one produce the same plausible ranked list. What that cost and how it
+was found is in [docs/DESIGN.md §5](docs/DESIGN.md); the build now fails if any
+of the five collapses again.
 
 **A collision answers four different questions.**
 
@@ -143,7 +150,9 @@ breakdown so you can re-weight after seeing results.
 | Orthogonal | far from both poles and sideways to the tension between them |
 
 A **blend vacancy above 1** means nothing in your map names that blend — a
-description without a word, which is the case worth looking at.
+description without a word. Read it comparatively, not as a threshold: at 153
+concepts **58% of all pairs clear 1.0**, because the whole space is sparse at
+this size. The number starts discriminating when the concept list does.
 
 **The front end is a real application, with no dependencies.** No build step, no
 CDN, no framework — ES modules, Canvas 2-D and about 570 lines of CSS over a
